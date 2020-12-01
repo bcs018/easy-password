@@ -6,7 +6,6 @@
         <link rel="stylesheet" href="http://localhost/easy-password/assets/css/bootstrap.min.css">
         <link rel="shortcut icon" href="http://localhost/easy-password/assets/img/icon.ico" >
         <title>Document</title>
-        <script src="http://localhost/easy-password/assets/js/bootstrap.min.js"></script>
 
     </head>
     <body>
@@ -38,7 +37,8 @@
         </nav>
 
         
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="http://localhost/easy-password/assets/js/bootstrap.min.js"></script>
 
-       
     </body>
 </html>
