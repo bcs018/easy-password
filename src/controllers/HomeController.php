@@ -2,11 +2,14 @@
 namespace src\controllers;
 
 use \core\Controller;
+use \src\models\Test;
 
 class HomeController extends Controller {
 
     public function index() {
-        $this->render('home', ['nome' => 'Easy-Password']);
+        $test = new Test();
+        $usu = $test->getAll();
+        $this->render('home');
     }
 
     public function sobre() {
