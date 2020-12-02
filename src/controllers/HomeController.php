@@ -8,7 +8,7 @@ class HomeController extends Controller {
 
     public function index() {
         $test = new Test();
-        $usu = $test->getAll();
+        //$usu = $test->getAll();
         $this->render('home');
     }
 

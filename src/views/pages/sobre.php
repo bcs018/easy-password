@@ -1,3 +1,13 @@
 <?php $render('header'); ?>
 
-<h4>Sobre</h4>
+<main>
+    <section>
+        <article>
+            <div class="container-sm margin_conteudo">
+              SOBRE
+            </div>
+        </article>
+    </section>
+</main>
+
+<?php $render('footer'); ?>

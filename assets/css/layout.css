@@ -1,0 +1,33 @@
+#menu:hover{
+    font-size: 18px;
+    color: #ffffff;
+}
+
+.margin_conteudo{
+    margin-top: 15px;
+}
+
+.footer{
+    position:absolute;
+    bottom:0;
+    padding: 48px;
+    background-color: #ffdc7a;
+    width: 100%;
+}
+
+.lp-pg-settings {
+    border: 1px solid #eaeaea;
+    border-radius: 5px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    width: 90%;
+    margin: 0 auto 15px;
+    padding: 25px;
+}
+@media (max-width: 400px) {
+    p{
+       float: left;
+    }
+
+}
