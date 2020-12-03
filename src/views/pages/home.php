@@ -8,7 +8,7 @@
                 <br><br>
                 <div class="field">
                     <strong> <label><h5>Preencha os dados:</h5></label> </strong><br><br>
-                    <form id="form" action="<?php echo BASE_URI; ?>/gerar-senha" method="POST">
+                    <form id="form" action="" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nm_refe">Nome de referência </label>
@@ -32,30 +32,30 @@
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck" name="carac_espe">
-                                <label class="form-check-label" for="gridCheck" value=carac_esp>
+                                <input class="form-check-input" type="checkbox" id="carac_espe" name="carac_espe" value="1">
+                                <label class="form-check-label" for="carac_espe">
                                     Caracteres especiais
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck2" name="carac_mai_min">
-                                <label class="form-check-label" for="gridCheck2" name="carac_espe" value="maiu_minu">
+                                <input class="form-check-input" type="checkbox" id="mai_min" name="carac_mai_min" value="1">
+                                <label class="form-check-label" for="mai_min" name="carac_espe" >
                                     Gerar letras maiúsculas e minúsculas
                                 </label>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="gridCheck3" name="salvar">
-                                <label class="form-check-label" for="gridCheck3" name="carac_espe" value="salvar">
+                                <input class="form-check-input" type="checkbox" id="salvar" name="salvar" value="1">
+                                <label class="form-check-label" for="salvar" name="carac_espe">
                                    Salvar (somente para usuários cadastrados e logados)
                                 </label>
                             </div>
                         </div>
                         <br>
-                        <button class="btn btn-primary">Gerar senha</button>
+                        <input type="submit" class="btn btn-primary" value="Gerar senha">
                     </form>
                 </div>
             </div>
@@ -68,7 +68,7 @@
                                 <center><h3><strong>Senha gerada:</strong></h3></center>
                             </div>
                             <div class="col col-lg-3">
-                                <center><h3>sjdiajdijasidj</h3></center>
+                                <center><h3 id="senha">sjdiajdijasidj</h3></center>
                             </div>
                             <div class="col col-lg-2">
                                 <center><button type="button" class="btn btn-info btn-sm">Copiar</button></center>
