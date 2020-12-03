@@ -8,16 +8,26 @@
                 <br><br>
                 <div class="field">
                     <strong> <label><h5>Preencha os dados:</h5></label> </strong><br><br>
-                    <form action="<?php echo BASE_URI; ?>/gerar-senha" method="POST">
+                    <form id="form" action="<?php echo BASE_URI; ?>/gerar-senha" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nm_refe">Nome de referência </label>
-                                <input type="text" class="form-control" id="nm_refe" placeholder="Nome referência" name="nome">
+                                <input type="text" class="form-control" id="nm_refe" onblur="verNomeRef()" placeholder="Nome referência" name="nome">
+                                <small id="passwordHelpInline" class="text-muted">
+                                   Opcional
+                                </small>
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="carac">Qtd de caracteres (Até 30 caracteres)</label>
-                                <input type="number" class="form-control" id="carac" placeholder="Qtd caracteres" name="qtd-carac">
+                                <label for="carac">Qtd de caracteres</label>
+                                <input type="number" class="form-control" id="carac" placeholder="Qtd caracteres" onblur="verQtdCaracter()" name="qtd-carac" aria-describedby="passwordHelpInline">
+                                <div class="invalid-feedback">
+                                     Por favor, informe de 1 até 30 caracteres.
+                                </div>
+                                <small id="passwordHelpInline" class="text-muted">
+                                    Deve ter até 30 caracteres.
+                                </small>
+                                
                             </div>
                         </div>
                         <div class="form-group">
@@ -45,7 +55,7 @@
                             </div>
                         </div>
                         <br>
-                        <input type="submit" class="btn btn-primary" value="Gerar senha">
+                        <button class="btn btn-primary">Gerar senha</button>
                     </form>
                 </div>
             </div>

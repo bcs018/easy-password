@@ -17,6 +17,8 @@
         <script src="http://localhost/easy-password/assets/js/bootstrap.min.js"></script>
         <script src="http://localhost/easy-password/assets/js/bootstrap.bundle.min.js"></script>   
         <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+        <script src="http://localhost/easy-password/assets/js/validar.js" type="text/javascript"></script>
+
 
     </body>
 </html>
