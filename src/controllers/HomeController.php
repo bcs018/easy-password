@@ -17,50 +17,8 @@ class HomeController extends Controller {
         }
 
         $s = new Senha($_POST);
+        $senha = ['senha' => implode('', $s->gerarSenha())];
 
-        $senha = $s->gerarSenha();
-
-        echo '<pre>';
-        print_r($senha);
-        echo '</pre>';        
-        exit;
-        
-
-        
-        
-        print_r($_POST);
-      
-        $frase['senha'] = rand(0, 1000);
-        echo json_encode($frase);
+        echo json_encode($senha);
     }
-
-    private function todasOp($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //10 numeros
-            //13 especiais
-
-            $ind = rand(0,3);
-
-            switch ($ind) {
-                case 0:
-                    $indCarac = rand(0,9);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-                
-                case 3: 
-                    $indCarac = rand(0,12);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-            }
-        }
-
-        return $senha;
-    }
-
 }

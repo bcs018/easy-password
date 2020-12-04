@@ -84,7 +84,7 @@
                                 <center><h3><strong>Senha gerada:</strong></h3></center>
                             </div>
                             <div class="col col-lg-3">
-                                <center><h3 id="senha">sjdiajdijasidj</h3></center>
+                                <center><h3 id="senha"></h3></center>
                             </div>
                             <div class="col col-lg-2">
                                 <center><button type="button" class="btn btn-info btn-sm">Copiar</button></center>
