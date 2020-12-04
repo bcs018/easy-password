@@ -27,7 +27,6 @@ $(function(){
             url:'/easy-password/public/gerar-senha',
             type:'post',
             data:{
-                nome_ref:  $("#nm_refe").val(),
                 qtd_carac: $('#carac').val(),
                 carac_espec,
                 letra_mai,
