@@ -10,10 +10,15 @@ $(function(){
             var carac_espec = 1;
         }
 
-        if($('#mai_min').is(':checked')){
-            var letra_mai_min = 1;
+        if($('#maius').is(':checked')){
+            var letra_mai = 1;
         }
-        
+        if($('#minus').is(':checked')){
+            var letra_min = 1;
+        }
+        if($('#numero').is(':checked')){
+            var numero = 1;
+        }       
         if($('#salvar').is(':checked')){
             var salvar = 1;
         }
@@ -22,10 +27,12 @@ $(function(){
             url:'/easy-password/public/gerar-senha',
             type:'post',
             data:{
-                nome_ref:     $("#nm_refe").val(),
-                qtd_carac:    $('#carac').val(),
+                nome_ref:  $("#nm_refe").val(),
+                qtd_carac: $('#carac').val(),
                 carac_espec,
-                letra_mai_min,
+                letra_mai,
+                letra_min,
+                numero,
                 salvar
                 },
             dataType:'json',

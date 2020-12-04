@@ -40,9 +40,25 @@
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="mai_min" name="carac_mai_min" value="1">
-                                <label class="form-check-label" for="mai_min" name="carac_espe" >
-                                    Gerar letras maiúsculas e minúsculas
+                                <input class="form-check-input" type="checkbox" id="maius" name="carac_mai" value="1">
+                                <label class="form-check-label" for="maius" name="carac_espe" >
+                                    Gerar letras maiúsculas
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="minus" name="carac_min" value="1">
+                                <label class="form-check-label" for="minus" name="carac_espe" >
+                                    Gerar letras minúsculas
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="numero" name="numero" value="1">
+                                <label class="form-check-label" for="numero" name="carac_espe" >
+                                    Gerar números
                                 </label>
                             </div>
                         </div>
