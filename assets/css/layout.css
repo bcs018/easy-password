@@ -27,6 +27,11 @@
     width: 90%;
     margin: 0 auto 15px;
     padding: 25px;
+
+}
+
+.field .container .row{
+    display: flex;
 }
 @media (max-width: 450px) {
     .footer{

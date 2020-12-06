@@ -76,19 +76,19 @@
                 </div>
             </div>
 
-            <div class="container-sm margin_conteudo">
+            <div class="container-sm">
                 <div class="field">
                     <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="col-md-auto">
-                                <center><h3><strong>Senha gerada:</strong></h3></center>
+                        <div class="row">
+                            <div class="col">
+                               <h3><strong>Senha gerada:</strong></h3>
                             </div>
-                            <div class="col col-lg-3">
-                                <center><h3 id="senha"></h3></center>
+                            <div class="col">
+                               <h3 id="senha"></h3>
                             </div>
-                            <div class="col col-lg-2">
+                            <!--<div class="col col-lg-2">
                                 <center><button type="button" class="btn btn-info btn-sm">Copiar</button></center>
-                            </div>
+                            </div>-->
                         </div>   
                     </div>        
                 </div>
