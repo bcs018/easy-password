@@ -249,7 +249,7 @@ class Senha extends Model {
                     $senha[] = $this->caracteres[$ind][$indCarac];
                     break;
             }
-        }
+        } 
 
         return $senha;
     }
