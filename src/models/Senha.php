@@ -38,7 +38,6 @@ class Senha extends Model {
         /* Se as opções caracter especiais, letra maiuscula, letra minuscula marcadas */
         if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min'])){   
             $senha = $this->espMaiMin($this->post['qtd_carac']);
-            echo 'Entrei aqui';
             return $senha;
         }
 
