@@ -83,9 +83,14 @@
                 <div class="field">
                     <center>
                         <h3><strong>Senha gerada:</strong></h3>
-                        <h3 id="senha"></h3>
+                        <br>
+                        <div class="mb-3">
+                            <input type="text" class="senha form-control" id="senha" name="senha" disabled>
+                        </div>                         
+                    
+                        <!--<h3><input type="text" id="senha" name="senha" wrap="hard" disabled></h3>-->
                         <div class="col col-lg-2">
-                            <br><button type="button" class="btn btn-info btn-sm">Copiar</button>
+                            <br><button type="button" id="bCopy" onclick="copy()" class="btn btn-info btn-sm">Copiar</button>
                         </div>
                     </center>     
                 </div>

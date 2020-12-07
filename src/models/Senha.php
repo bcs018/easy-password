@@ -93,6 +93,7 @@ class Senha extends Model {
         for($i=0; $i < $qtdCaracter; $i++){
             //posição do array de valores a ser sorteados do caracteres
             $sorteio = [$pos[0], $pos[1]];
+            
             //sorteio de qual posição do array acima sera pegado
             $ind = rand(0,1);
 

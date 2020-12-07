@@ -33,6 +33,15 @@
 .field .container .row{
     display: flex;
 }
+
+.senha{
+    text-align: center;
+    background-color: #ffffff;
+    font-size: 20px;
+    border: 0;
+    font-weight: bolder
+}
+
 @media (max-width: 450px) {
     .footer{
         margin-top: 100px;

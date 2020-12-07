@@ -54,7 +54,8 @@ $(function(){
                 $('#minus').removeClass('is-invalid');
                 $('#numero').removeClass('is-invalid');
                 $('#erro').html('');
-                $('#senha').html(json.senha);
+                //$('#senha').val() = json.senha;
+                document.querySelector("[name=senha]").value = json.senha;
             }
         });
     });
