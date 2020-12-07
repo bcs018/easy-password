@@ -22,12 +22,12 @@
     border: 1px solid #eaeaea;
     border-radius: 5px;
     background-color: #fff;
-    -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.15);
+    -webkit-box-shadow: 0 2px 8px rgba(63, 44, 44, 0.15);
     box-shadow: 0 2px 8px rgba(0,0,0,.15);
     width: 90%;
     margin: 0 auto 15px;
     padding: 25px;
-
+    word-wrap: break-word;
 }
 
 .field .container .row{

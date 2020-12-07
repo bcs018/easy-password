@@ -79,21 +79,15 @@
                 </div>
             </div>
 
-            <div class="container-sm">
+            <div class="container-sm margin_conteudo">
                 <div class="field">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                               <h3><strong>Senha gerada:</strong></h3>
-                            </div>
-                            <div class="col">
-                               <h3 id="senha"></h3>
-                            </div>
-                            <!--<div class="col col-lg-2">
-                                <center><button type="button" class="btn btn-info btn-sm">Copiar</button></center>
-                            </div>-->
-                        </div>   
-                    </div>        
+                    <center>
+                        <h3><strong>Senha gerada:</strong></h3>
+                        <h3 id="senha"></h3>
+                        <div class="col col-lg-2">
+                            <br><button type="button" class="btn btn-info btn-sm">Copiar</button>
+                        </div>
+                    </center>     
                 </div>
             </div>          
         </article>
