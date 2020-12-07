@@ -54,7 +54,7 @@ $(function(){
                 $('#minus').removeClass('is-invalid');
                 $('#numero').removeClass('is-invalid');
                 $('#erro').html('');
-                //$('#senha').val() = json.senha;
+
                 document.querySelector("[name=senha]").value = json.senha;
             }
         });

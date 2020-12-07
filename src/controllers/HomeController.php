@@ -17,7 +17,7 @@ class HomeController extends Controller {
             exit;
         }
 
-        if(!isset($_POST['carac_espec']) && !isset($_POST['letra_mai']) &&!isset($_POST['letra_min']) &&!isset($_POST['numero'])){
+        if(!isset($_POST['carac_espec']) && !isset($_POST['letra_mai']) && !isset($_POST['letra_min']) && !isset($_POST['numero'])){
             //Erro 002 = Nenhuma opção selecionada
             echo json_encode(array("erro"=>"002"));
             exit;
