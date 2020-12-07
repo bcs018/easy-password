@@ -18,63 +18,48 @@ class Senha extends Model {
 
     public function gerarSenha(){
         /* Se as opções caracter especiais, letra maiuscula, letra minuscula, e numeros estiver marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){   
-            $senha = $this->todasOp($this->post['qtd_carac']);
-            return $senha;
+        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){              
+            return $this->calcularSenha($this->post['qtd_carac'], [0,3]);
         }
 
         /* Se as opções letra maiuscula, letra minuscula, e numeros estiver marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){
-            $senha = $this->maiMinNum($this->post['qtd_carac']);
-            return $senha;
+        if(isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){       
+            return $this->calcularSenha($this->post['qtd_carac'], [0,2]);
         }
 
         /* Se as opções letra minuscula e numeros estiver marcadas */
         if(isset($this->post['letra_min']) && isset($this->post['numero'])){
-            $senha = $this->minNum($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [0,1]);  
         }
 
         /* Se as opções caracter especiais, letra maiuscula, letra minuscula marcadas */
         if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min'])){   
-            $senha = $this->espMaiMin($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [1,3]); 
         }
 
         /* Se as opções caracter especiais, letra maiuscula marcadas */
         if(isset($this->post['carac_espec']) && isset($this->post['letra_mai'])){   
-            $senha = $this->espMai($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [2,3]);
         }
 
          /* Se as opções caracter especiais, letra minuscula marcadas */
          if(isset($this->post['carac_espec']) && isset($this->post['letra_min'])){   
-            $senha = $this->espMin($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [1,3]);
         }
 
         /* Se as opções caracter especiais, numero marcadas */
         if(isset($this->post['carac_espec']) && isset($this->post['numero'])){   
-            $senha = $this->espNum($this->post['qtd_carac']);
-            return $senha;
-        }
-
-        /* Se as opções caracter maiusculo e especiais marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['carac_espec'])){   
-            $senha = $this->maiEsp($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [0,3]);
         }
 
         /* Se as opção maiusculo e minusculo estiver marcadas */
         if(isset($this->post['letra_mai']) && isset($this->post['letra_min'])){  
-            $senha = $this->maiMin($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [1,2]);
          }
 
-          /* Se as opção maiusculo e minusculo estiver marcadas */
+          /* Se as opção maiusculo e numero estiver marcadas */
         if(isset($this->post['letra_mai']) && isset($this->post['numero'])){  
-            $senha = $this->maiNum($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [0,2]);
          }
 
         /**
@@ -83,211 +68,43 @@ class Senha extends Model {
 
         /* Se as opção numeros estiver marcadas */
         if(isset($this->post['numero'])){
-            $senha = $this->numero($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [0,0]);
         }
 
         /* Se as opção minuscula estiver marcadas */
         if(isset($this->post['letra_min'])){
-            $senha = $this->minuscula($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [1,1]);
         }
         
         /* Se as opção maiuscula estiver marcadas */
         if(isset($this->post['letra_mai'])){
-            $senha = $this->maiuscula($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [2,2]);
         }
 
          /* Se as opção especial estiver marcadas */
          if(isset($this->post['carac_espec'])){
-            $senha = $this->especial($this->post['qtd_carac']);
-            return $senha;
+            return $this->calcularSenha($this->post['qtd_carac'], [3,3]);
          }
-        
-         
     }
 
-    /* ---- Opções ---- */
+    /* ---- Calcular a senha ---- */
 
-    private function todasOp($qtdCaracter){
+    private function calcularSenha($qtdCaracter, $pos){
         for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //10 numeros
-            //13 especiais
+            //posição do array de valores a ser sorteados do caracteres
+            $sorteio = [$pos[0], $pos[1]];
+            //sorteio de qual posição do array acima sera pegado
+            $ind = rand(0,1);
 
-            $ind = rand(0,3);
-
-            switch ($ind) {
+            //verifica qual posição do sorteio para saber se pegara numeros, especial, maiusculo ou minusculo
+            switch ($sorteio[$ind]) {
                 case 0:
                     $indCarac = rand(0,9);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
+                    $senha[] = $this->caracteres[$sorteio[$ind]][$indCarac];
                     break;
                 
                 case 3: 
                     $indCarac = rand(0,12);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-            }
-        }
-
-        return $senha;
-    }
-
-    private function maiMinNum($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //10 numeros
-
-            $ind = rand(0,2);
-
-            switch ($ind) {
-                case 0:
-                    $indCarac = rand(0,9);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-            }
-        }
-
-        return $senha;
-    }
-
-    private function minNum($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //10 numeros
-
-            $ind = rand(0,1);
-
-            switch ($ind) {
-                case 0:
-                    $indCarac = rand(0,9);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-            }
-        }
-
-        return $senha;
-    }
-
-    private function numero($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //10 numeros
-    
-            $indCarac = rand(0,9);
-            $senha[] = $this->caracteres[0][$indCarac];               
-        }
-
-        return $senha;
-    }
-
-    private function minuscula($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-    
-            $indCarac = rand(0,26);
-            $senha[] = $this->caracteres[1][$indCarac];               
-        }
-
-        return $senha;
-    }
-
-    private function maiuscula($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-    
-            $indCarac = rand(0,26);
-            $senha[] = $this->caracteres[2][$indCarac];               
-        }
-
-        return $senha;
-    }
-
-    private function especial($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-    
-            $indCarac = rand(0,12);
-            $senha[] = $this->caracteres[3][$indCarac];               
-        }
-
-        return $senha;
-    }
-
-    
-    private function espMaiMin($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //13 especial
-
-            $ind = rand(1,3);
-
-            switch ($ind) {
-                case 3:
-                    $indCarac = rand(0,12);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-            }
-        } 
-
-        return $senha;
-    }
-
-    private function espMai($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //13 especial
-
-            $ind = rand(2,3);
-
-            switch ($ind) {
-                case 3:
-                    $indCarac = rand(0,12);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-            }
-        }
-
-        return $senha;
-    }
-
-    private function espMin($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //13 especial
-
-            $sorteio = [1,3];
-            $ind = rand(0,1);
-
-            switch ($sorteio[$ind]) {
-                case 3:
-                    $indCarac = rand(0,12);
                     $senha[] = $this->caracteres[$sorteio[$ind]][$indCarac];
                     break;
 
@@ -299,81 +116,5 @@ class Senha extends Model {
         }
 
         return $senha;
-    }
-
-    private function espNum($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //13 especial
-
-            $sorteio = [3,0];
-            $ind = rand(0,1);
-
-            switch ($sorteio[$ind]) {
-                case 3:
-                    $indCarac = rand(0,9);
-                    $senha[] = $this->caracteres[$sorteio[$ind]][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,9);
-                    $senha[] = $this->caracteres[$sorteio[$ind]][$indCarac];
-                    break;
-            }
-        } 
-
-        return $senha;
-    }
-
-    private function maiMin($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //13 especial
-
-            
-            $ind = rand(1,2);
-
-            switch ($ind) {
-                case 1:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$ind][$indCarac];
-                    break;
-            }
-        }
-
-        return $senha;
-    }
-
-    private function maiNum($qtdCaracter){
-        for($i=0; $i < $qtdCaracter; $i++){
-            //27 alfabeto
-            //13 especial
-           
-            $sorteio = [0,2];
-
-            $ind = rand(0,1);
-
-            switch ($sorteio[$ind]) {
-                case 0:
-                    $indCarac = rand(0,9);
-                    $senha[] = $this->caracteres[$sorteio[$ind]][$indCarac];
-                    break;
-
-                default:
-                    $indCarac = rand(0,26);
-                    $senha[] = $this->caracteres[$sorteio[$ind]][$indCarac];
-                    break;
-            }
-        }
-
-        return $senha;
-    }
-
-    
-
+    } 
 }
