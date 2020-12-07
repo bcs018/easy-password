@@ -36,6 +36,24 @@ $(function(){
                 },
             dataType:'json',
             success:function(json){
+                if(json.erro == '001'){
+                    $('#erro').html('<br><div class="alert alert-danger" role="alert">Quantidade de caracteres zerado!</div>');
+                    return;
+                }
+
+                if(json.erro == '002'){
+                    $('#erro').html('<br><div class="alert alert-danger" role="alert">Pelo menos uma opção deve ser selecionada!</div>');
+                    $('#carac_espe').addClass('is-invalid');
+                    $('#maius').addClass('is-invalid');
+                    $('#minus').addClass('is-invalid');
+                    $('#numero').addClass('is-invalid');
+                    return;
+                }
+                $('#carac_espe').removeClass('is-invalid');
+                $('#maius').removeClass('is-invalid');
+                $('#minus').removeClass('is-invalid');
+                $('#numero').removeClass('is-invalid');
+                $('#erro').html('');
                 $('#senha').html(json.senha);
             }
         });

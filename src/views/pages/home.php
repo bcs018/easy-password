@@ -73,6 +73,9 @@
                         <br>
                         <input type="submit" class="btn btn-primary" value="Gerar senha">
                     </form>
+
+                    <div id="erro"></div>
+
                 </div>
             </div>
 
