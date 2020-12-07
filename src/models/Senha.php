@@ -320,7 +320,7 @@ class Senha extends Model {
                     $senha[] = $this->caracteres[$sorteio[$ind]][$indCarac];
                     break;
             }
-        }
+        } 
 
         return $senha;
     }
