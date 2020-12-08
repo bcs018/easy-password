@@ -1,4 +1,4 @@
-<?php $render('header'); ?>
+<?php $render('header', ['title'=>'easy password - Login']); ?>
 
     <div class="limiter">
 		<div class="container-login100">

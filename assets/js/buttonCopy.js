@@ -2,20 +2,6 @@ $('#bCopy').on('click', function(){
    $('input').select();
 
    var copiar = document.execCommand('copy');
-
-   if(copiar){
-       console.log("Copiou");
-   }else{
-       console.log("Não copiou");
-   }
-    
-    //document.execCommand('copy');
-
-    console.log("chamou");
-
+   
+   toastr.info('Copiado para a área de transferência!')
 });
-   /* const content = document.querySelector('#senha');
-    content.select();
-
-    document.execCommand('copy');
-}*/

@@ -6,9 +6,10 @@
         <link rel="stylesheet" href="http://localhost/easy-password/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="http://localhost/easy-password/assets/css/layout.css">
         <link rel="shortcut icon" href="http://localhost/easy-password/assets/img/icon.ico" >
+        <link href="http://localhost/easy-password/assets/css/toastr.min.css" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="http://localhost/easy-password/assets/css/util.css">
 	    <link rel="stylesheet" type="text/css" href="http://localhost/easy-password/assets/css/main.css">
-        <title>Document</title>
+        <title><?php echo $title; ?></title>
 
     </head>
     <body>

@@ -1,4 +1,4 @@
-<?php $render('header'); ?>
+<?php $render('header', ['title'=>'easy password - Cadastre-se']); ?>
 
 <main>
     <section>
@@ -12,6 +12,9 @@
                             <div class="form-group col-md-6">
                                 <label for="nick">Nickname (apelido) </label>
                                 <input type="text" class="form-control" id="nick" placeholder="Nickname" name="nick">
+                                <small id="passwordHelpInline" class="text-muted">
+                                   Opcional.
+                                </small>
                             </div>
                         </div>
                         <div class="form-row">

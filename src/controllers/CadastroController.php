@@ -10,6 +10,10 @@ class CadastroController extends Controller {
     }
 
     public function validar(){
+        
+    }
+
+    public function cadastrar(){
 
     }
 }

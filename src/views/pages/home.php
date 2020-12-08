@@ -1,4 +1,4 @@
-<?php $render('header'); ?>
+<?php $render('header', ['title'=>'easy password - Gerador de senhas']); ?>
 
 <main>
     <section>
@@ -10,17 +10,9 @@
                     <strong> <label><h5>Preencha os dados:</h5></label> </strong><br><br>
                     <form id="form" action="" method="POST">
                         <div class="form-row">
-                            <!--<div class="form-group col-md-6">
-                                <label for="nm_refe">Nome de referência </label>
-                                <input type="text" class="form-control" id="nm_refe" onblur="verNomeRef()" placeholder="Nome referência" name="nome">
-                                <small id="passwordHelpInline" class="text-muted">
-                                   Opcional
-                                </small>
-                            </div>-->
-
                             <div class="form-group col-md-6">
                                 <label for="carac">Quantidade de caracteres</label>
-                                <input type="number" class="form-control" id="carac"  onblur="verQtdCaracter()" name="qtd-carac" aria-describedby="passwordHelpInline">
+                                <input type="number" class="form-control" id="carac"  onblur="verQtdCaracter()" name="qtd-carac" aria-describedby="passwordHelpInline" autofocus>
                                 <div class="invalid-feedback">
                                      Por favor, informe de 1 até 30 caracteres.
                                 </div>
@@ -88,7 +80,6 @@
                             <input type="text" class="senha form-control" id="senha" name="senha" readonly>
                         </div>                         
                     
-                        <!--<h3><input type="text" id="senha" name="senha" wrap="hard" disabled></h3>-->
                         <div class="col col-lg-2">
                             <br><button type="button" id="bCopy" class="btn btn-info btn-sm">Copiar</button>
                         </div>

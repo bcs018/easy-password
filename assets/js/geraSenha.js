@@ -47,6 +47,7 @@ $(function(){
                     $('#maius').addClass('is-invalid');
                     $('#minus').addClass('is-invalid');
                     $('#numero').addClass('is-invalid');
+                    toastr.error ('Selecione pelo menos uma opção') ;
                     return;
                 }
                 $('#carac_espe').removeClass('is-invalid');
