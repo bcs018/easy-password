@@ -7,7 +7,7 @@
                 <h2>Cadastro rápido</h2>
                 <br><br>
                 <div class="field">
-                    <form action="<?php echo BASE_URI; ?>/gerar-senha" method="POST">
+                    <form id="form" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nick">Nickname (apelido) </label>
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                         <br>
-                        <input type="submit" class="btn btn-primary" value="Cadastrar">
+                        <input type="submit" id='cadastrar' class="btn btn-primary" value="Cadastrar">
                     </form>
                 </div>               
             </div>
