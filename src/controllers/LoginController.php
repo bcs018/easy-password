@@ -9,7 +9,7 @@ class LoginController extends Controller {
         $this->render('login');
     }
 
-    public function validar(){
+    public function validarLogin(){
         echo 'ola';
     }
 }
