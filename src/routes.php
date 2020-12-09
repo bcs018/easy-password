@@ -9,6 +9,7 @@ $router->get('/sobre', 'HomeController@sobre');
 
 $router->get('/login', 'LoginController@index');
 $router->get('/cadastre-se', 'CadastroController@index');
+$router->get('/painel', 'PainelController@index');
 
 /* Rotas de requisições ajax */
 $router->post('/cadastre-se/valida-login', 'CadastroController@validarLogin');

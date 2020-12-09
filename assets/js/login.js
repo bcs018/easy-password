@@ -28,6 +28,15 @@ $('#form3').on('submit', function(e){
                 toastr.error ('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
                 return;
             }
+
+            if(json.success == '100'){
+                window.location.href = '/easy-password/public/painel';
+                return;
+            }
+                
+            toastr.error ('"Login" ou "Senha" incorreto!');
+            return;
+            
         }
     });
 });

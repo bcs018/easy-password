@@ -2,6 +2,7 @@
 namespace src\controllers;
 
 use \core\Controller;
+use \src\models\Login;
 
 
 class LoginController extends Controller {
@@ -24,5 +25,15 @@ class LoginController extends Controller {
 
         $email = addslashes($_POST['login']);
         $senha = addslashes($_POST['senha']);
+
+        $login = new Login();
+
+        if($login->validarAutentic($email, $senha)){
+            //Mensagem 100 = Autenticação validada
+            echo json_encode(['success'=>'100']);
+            exit;
+        }
+
+        echo json_encode(['succes'=>'000']);
     }
 }
