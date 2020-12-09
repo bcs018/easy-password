@@ -7,7 +7,7 @@
                 <h2>Cadastro rápido</h2>
                 <br><br>
                 <div class="field">
-                    <form id="form" method="POST">
+                    <form id="form2" action="" method="POST">
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="nick">Nickname (apelido) </label>
@@ -26,16 +26,18 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="pass">Senha</label>
-                                <input type="text" class="form-control" id="pass" placeholder="Senha" name="pass">
+                                <input type="password" class="form-control" id="pass" placeholder="Senha" name="pass">
                             </div>
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="con_pass">Confirmar senha</label>
-                                <input type="text" class="form-control" id="con_pass" placeholder="Senha" name="con_pass">
+                                <input type="password" class="form-control" id="con_pass" placeholder="Senha" name="con_pass">
                             </div>
+                            
                         </div>
-                        <br>
+                        
+                        <div id="errSenha"></div>
                         <input type="submit" id='cadastrar' class="btn btn-primary" value="Cadastrar">
                     </form>
                 </div>               
@@ -45,3 +47,4 @@
 </main>
 
 <?php $render('footer'); ?>
+

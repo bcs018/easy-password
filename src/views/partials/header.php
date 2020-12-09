@@ -16,7 +16,7 @@
         <header>  
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffdc7a;">
                 <a class="navbar-brand" href="<?php echo BASE_URI; ?>">
-                    <img src="http://localhost/easy-password/assets/img/easy-password.png" width="194" height="40" alt="easy password" loading="lazy" style="margin-right: 100px;">
+                    <img src="/easy-password/assets/img/easy-password.png" width="194" height="40" alt="easy password" loading="lazy" style="margin-right: 100px;">
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -26,9 +26,6 @@
                         <li class="nav-item">
                             <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>">Home</a>
                         </li>
-                        <!--<li class="nav-item">
-                            <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/sobre">Sobre</a>
-                        </li>-->
                         <li class="nav-item">
                             <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/cadastre-se">Cadastre-se</a>
                         </li>

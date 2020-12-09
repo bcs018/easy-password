@@ -13,6 +13,10 @@
     margin-bottom: 50px;
 }
 
+.mr-auto, .mx-auto {
+    margin-bottom: 50px;
+}
+
 #bcs:hover{
     font-size: 17px;
 }

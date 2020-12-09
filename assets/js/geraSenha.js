@@ -75,7 +75,3 @@ function verQtdCaracter(){
         $("#carac").addClass('is-valid');
     }
 }
-
-function verNomeRef(){
-    $('#nm_refe').addClass('is-valid');
-}
