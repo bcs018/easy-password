@@ -14,6 +14,7 @@
     </footer>
 
         <script src="http://localhost/easy-password/assets/js/jquery.min.js"></script>
+        <script src="http://localhost/easy-password/assets/js/popper.min.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/bootstrap.min.js"></script>
         <script src="http://localhost/easy-password/assets/js/geraSenha.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/buttonCopy.js" type="text/javascript"></script>

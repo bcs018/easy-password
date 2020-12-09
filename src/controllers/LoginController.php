@@ -34,6 +34,7 @@ class LoginController extends Controller {
             exit;
         }
 
+        //Autenticação inválida
         echo json_encode(['succes'=>'000']);
     }
 }

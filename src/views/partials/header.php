@@ -9,6 +9,7 @@
         <link href="http://localhost/easy-password/assets/css/toastr.min.css" rel="stylesheet"/>
         <link rel="stylesheet" type="text/css" href="http://localhost/easy-password/assets/css/util.css">
 	    <link rel="stylesheet" type="text/css" href="http://localhost/easy-password/assets/css/main.css">
+        
         <title><?php echo $title; ?></title>
 
     </head>
