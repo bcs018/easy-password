@@ -18,6 +18,7 @@
         <script src="http://localhost/easy-password/assets/js/geraSenha.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/buttonCopy.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/cadastro.js" type="text/javascript"></script>
+        <script src="http://localhost/easy-password/assets/js/login.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
 
 

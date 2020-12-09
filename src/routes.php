@@ -14,3 +14,4 @@ $router->get('/cadastre-se', 'CadastroController@index');
 $router->post('/cadastre-se/valida-login', 'CadastroController@validarLogin');
 $router->post('/cadastre-se/cadastrar', 'CadastroController@cadastrar');
 $router->post('/gerar-senha', 'HomeController@geraSenha');
+$router->post('/logar', 'LoginController@validarLogin');
