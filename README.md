@@ -18,6 +18,6 @@ create table usuarios(
 )default char set utf8; 
 ```
 
-* Instalar o programa composer caso não tenha instalado e rodar o comando pelo CMD ```sh composer install``` dentro da pasta do projeto C:\xampp\htdocs\easy-password
+* Instalar o programa composer caso não tenha instalado e rodar o comando pelo CMD ``` composer install``` dentro da pasta do projeto C:\xampp\htdocs\easy-password
 
 * Rodar no localhost/easy-password
