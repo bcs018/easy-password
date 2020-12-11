@@ -8,6 +8,12 @@ Software web destinado a geração fácil de senhas de 1 até 30 caracteres, com
 * Após fazer o clone do projeto na pasta do xampp que é a htdocs, geralmente fica em C:\xampp\htdocs, criar um banco de dados MySQL com o nome de easy-password, por enquanto com uma tabela de usuarios como no exemplo abaixo:
 
 ```sh
+//Criação do banco
+create database `easy-password`
+default character set utf8
+default collate utf8_general_ci;
+
+//Criação da tabela usuarios
 create table usuarios(
     usuario_id int not null auto_increment,
     nickname varchar(100),
