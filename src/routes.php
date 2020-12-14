@@ -11,6 +11,8 @@ $router->get('/login', 'LoginController@index');
 $router->get('/cadastre-se', 'CadastroController@index');
 $router->get('/painel', 'PainelController@index');
 
+$router->post('/inserir-categoria', 'PainelController@inserirCat');
+
 /* Rotas de requisições ajax */
 $router->post('/cadastre-se/valida-login', 'CadastroController@validarLogin');
 $router->post('/cadastre-se/cadastrar', 'CadastroController@cadastrar');
