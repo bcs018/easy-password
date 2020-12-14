@@ -7,6 +7,6 @@ use \core\Controller;
 
 class PainelController extends Controller {
     public function index(){
-        $this->render('painel');
+        $this->render('painel/cadSenha');
     }
 }
