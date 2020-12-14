@@ -8,13 +8,12 @@
                 <div class="form-panel">
                     <h4 class="mb"><i class="fa fa-angle-right"></i> Cadastro de senhas</h4>
                     <form class="form-horizontal style-form" method="get">
+
                         <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Selecione a categoria <button
-                                    data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
-                                    data-bs-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">OL</button>
-                            </label>
+                            <label class="form-label">Selecione a categoria</label>
                             <div class="col-sm-10">
                                 <select class="form-control">
+                                    <option>Selecionar...</option>
                                     <option>Facebook</option>
                                     <option>Instagram</option>
                                     <option>Twitter</option>
@@ -24,14 +23,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Informe a senha</label>
+                            <label class="form-label">Informe a senha</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" placeholder="Senha">
                             </div>
                         </div>
 
                         <div class="form-group">
-                            <label class="col-sm-2 col-sm-2 control-label">Observação</label>
+                            <label class="form-label">Observação</label>
                             <div class="col-sm-10">
                                 <textarea class="form-control" placeholder="Observação"></textarea>
                                 <span class="help-block">Opcional.</span>
