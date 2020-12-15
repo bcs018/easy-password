@@ -1,4 +1,6 @@
-<?php $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
+<?php 
+$render('headerPainel', ['title' => 'easy password - Painel de controle']); 
+?>
 
 <section id="main-content">
     <section class="wrapper">
@@ -7,7 +9,7 @@
             <div class="col-lg-12">
                 <div class="form-panel">
                     <h2 class="mb"><i class="fa fa-angle-right"></i> Cadastro de categorias</h2>
-                    <form class="form-horizontal style-form" method="post" action="<?php echo BASE_URI; ?>/">
+                    <form class="form-horizontal style-form" method="post" action="<?php echo BASE_URI; ?>/inserir-categoria">
                         <div class="form-group">
                             <label class="form-label">Nome da categoria</label>
                             <div class="col-sm-10">
@@ -17,15 +19,19 @@
                             </div>
                         </div>
                     </form>
+                    <script src="http://localhost/easy-password/assets/pnl/js/toastr.min.js"></script>
+                    <?php echo $_SESSION['message']; ?>
 
-                    <?php if($_SESSION['message'] == '001'): ?>
-                        <script>
-                            toastr.error ('Categoria em branco!') ;
-                        </script>
+                    <?php if (isset($_SESSION['message'])): 
+                            //if($_POST['message'] == '001') : ?>
+                                <script>
+                                    toastr.error('Categoria em branco!');
+                                </script>
+                            <?php //endif; ?>
                     <?php endif; ?>
-                    <?php if($_SESSION['message'] == '002'): ?>
+                    <?php if (isset($_SESSION['message'])): ?>
                         <script>
-                            toastr.success ('Cadastro feito com sucesso!') ;
+                            toastr.success('Cadastro feito com sucesso!');
                         </script>
                     <?php endif; ?>
 
@@ -33,11 +39,9 @@
                         <label class="form-label">Categorias cadastradas</label>
                         <div class="col-sm-10">
                             <select multiple="" class="form-control">
-                                <option>Facebook</option>
-                                <option>Instagram</option>
-                                <option>Twitter</option>
-                                <option>Sem categoria</option>
-
+                                <?php foreach ($categorias as $categoria) : ?>
+                                    <option><?php echo $categoria['nome_categoria']; ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                     </div>
@@ -54,8 +58,7 @@
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.min.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/bootstrap.min.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/bootstrap.bundle.min.js"></script>
-<script class="include" type="text/javascript"
-    src="http://localhost/easy-password/assets/pnl/js/jquery.dcjqaccordion.2.7.js"></script>
+<script class="include" type="text/javascript" src="http://localhost/easy-password/assets/pnl/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.scrollTo.min.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.sparkline.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/main.js"></script>
