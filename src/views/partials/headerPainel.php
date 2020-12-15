@@ -12,20 +12,12 @@
 	<link href="http://localhost/easy-password/assets/pnl/css/bootstrap.min.css" rel="stylesheet">
 
 	<link href="http://localhost/easy-password/assets/pnl/font-awesome/css/font-awesome.css" rel="stylesheet" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/easy-password/assets/pnl/css/zabuto_calendar.css">
-	<link rel="stylesheet" type="text/css"
-		href="http://localhost/easy-password/assets/pnl/js/gritter/css/jquery.gritter.css" />
-	<link rel="stylesheet" type="text/css" href="http://localhost/easy-password/assets/pnl/lineicons/style.css">
 	<link rel="shortcut icon" href="http://localhost/easy-password/assets/img/icon.ico">
 	<link href="http://localhost/easy-password/assets/css/toastr.min.css" rel="stylesheet"/>
-
-
 
 	<!-- Custom styles for this template -->
 	<link href="http://localhost/easy-password/assets/pnl/css/style.css" rel="stylesheet">
 	<link href="http://localhost/easy-password/assets/pnl/css/style-responsive.css" rel="stylesheet">
-
-	<script src="http://localhost/easy-password/assets/pnl/js/chart-master/Chart.js"></script>
 
 </head>
 

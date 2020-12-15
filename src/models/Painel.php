@@ -16,4 +16,15 @@ class Painel extends Model {
         $sql->bindValue(1, $cat);
         $sql->execute();
     }
+
+    public function excluirCate($id){
+        $sql = "DELETE FROM categoria WHERE categoria_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $id);
+        $sql->execute();
+    }
+
+    public function editarCate($id){
+        
+    }
 } 

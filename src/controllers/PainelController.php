@@ -37,10 +37,18 @@ class PainelController extends Controller {
     }
 
     public function excluirCat($id){
-        echo "excluir";
+        $painel = new Painel;
+        $painel->excluirCate($id['id']);
+
+        $_SESSION['message'] = "<script>
+                                    toastr.success('Excluido com sucesso!');
+                                </script>";
+
+        header("Location: ". BASE_URI."/painel");
+        exit;
     }
     
     public function editarCat($id){
-        echo "editar";
+        
     }
 }
