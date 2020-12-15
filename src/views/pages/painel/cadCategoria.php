@@ -9,7 +9,8 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
             <div class="col-lg-12">
                 <div class="form-panel">
                     <h2 class="mb"><i class="fa fa-angle-right"></i> Cadastro de categorias</h2>
-                    <form class="form-horizontal style-form" method="post" action="<?php echo BASE_URI; ?>/inserir-categoria">
+                    <form class="form-horizontal style-form" method="post"
+                        action="<?php echo BASE_URI; ?>/inserir-categoria">
                         <div class="form-group">
                             <label class="form-label">Nome da categoria</label>
                             <div class="col-sm-10">
@@ -20,18 +21,30 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
                         </div>
                     </form>
 
-                    <?php //echo $_SESSION['message']; ?>
+                    <label class="form-label">Categorias cadastradas</label>
 
-                    <div class="form-group">
-                        <label class="form-label">Categorias cadastradas</label>
-                        <div class="col-sm-10">
-                            <select multiple="" class="form-control">
-                                <?php foreach ($categorias as $categoria) : ?>
-                                    <option><?php echo $categoria['nome_categoria']; ?></option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                    </div>
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Categoria</th>
+                                <th scope="col">Acão</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        
+                        <?php if(empty($categorias)):
+                            echo '<tr><th> Não há categorias a mostrar </tr></th>';
+                        else:
+                            foreach($categorias as $categoria): ?>
+                            <tr>
+                                <th scope="row"><?php echo $categoria['nome_categoria']; ?></th>
+                                <th scope="row"> <a href="<?php  echo BASE_URI.'/excluir-categoria/'. $categoria['categoria_id'];?>">Excluir</a> &nbsp | &nbsp
+                                                 <a href="<?php echo BASE_URI. '/editar-categoria/'.$categoria['categoria_id'];?>">Editar</a>  </th>
+                            </tr>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                        </tbody>
+                    </table>
 
                 </div>
             </div>
@@ -48,7 +61,8 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
 <!--<script src="http://localhost/easy-password/assets/pnl/js/bootstrap.min.js"></script>-->
 <script src="http://localhost/easy-password/assets/pnl/js/bootstrap.bundle.min.js"></script>
 <script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
-<script class="include" type="text/javascript" src="http://localhost/easy-password/assets/pnl/js/jquery.dcjqaccordion.2.7.js"></script>
+<script class="include" type="text/javascript"
+    src="http://localhost/easy-password/assets/pnl/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.scrollTo.min.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.sparkline.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/main.js"></script>

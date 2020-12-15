@@ -35,4 +35,12 @@ class PainelController extends Controller {
         header("Location: ". BASE_URI."/painel");
         exit;   
     }
+
+    public function excluirCat($id){
+        echo "excluir";
+    }
+    
+    public function editarCat($id){
+        echo "editar";
+    }
 }
