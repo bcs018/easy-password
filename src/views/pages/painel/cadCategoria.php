@@ -19,21 +19,8 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
                             </div>
                         </div>
                     </form>
-                    <script src="http://localhost/easy-password/assets/pnl/js/toastr.min.js"></script>
-                    <?php echo $_SESSION['message']; ?>
 
-                    <?php if (isset($_SESSION['message'])): 
-                            //if($_POST['message'] == '001') : ?>
-                                <script>
-                                    toastr.error('Categoria em branco!');
-                                </script>
-                            <?php //endif; ?>
-                    <?php endif; ?>
-                    <?php if (isset($_SESSION['message'])): ?>
-                        <script>
-                            toastr.success('Cadastro feito com sucesso!');
-                        </script>
-                    <?php endif; ?>
+                    <?php //echo $_SESSION['message']; ?>
 
                     <div class="form-group">
                         <label class="form-label">Categorias cadastradas</label>
@@ -53,16 +40,18 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
 </section>
 
 
+
+
 <!-- js placed at the end of the document so the pages load faster 
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.js"></script>-->
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.min.js"></script>
-<script src="http://localhost/easy-password/assets/pnl/js/bootstrap.min.js"></script>
+<!--<script src="http://localhost/easy-password/assets/pnl/js/bootstrap.min.js"></script>-->
 <script src="http://localhost/easy-password/assets/pnl/js/bootstrap.bundle.min.js"></script>
+<script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
 <script class="include" type="text/javascript" src="http://localhost/easy-password/assets/pnl/js/jquery.dcjqaccordion.2.7.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.scrollTo.min.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/jquery.sparkline.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/main.js"></script>
-<script src="http://localhost/easy-password/assets/pnl/js/toastr.min.js"></script>
 
 
 
@@ -75,6 +64,13 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
 <!--script for this page-->
 <script src="http://localhost/easy-password/assets/pnl/js/sparkline-chart.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/zabuto_calendar.js"></script>
+
+<?php 
+if (isset($_SESSION['message'])){
+    echo $_SESSION['message'];
+    unset($_SESSION['message']);
+} 
+?>
 
 </body>
 

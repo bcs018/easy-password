@@ -17,6 +17,9 @@
 		href="http://localhost/easy-password/assets/pnl/js/gritter/css/jquery.gritter.css" />
 	<link rel="stylesheet" type="text/css" href="http://localhost/easy-password/assets/pnl/lineicons/style.css">
 	<link rel="shortcut icon" href="http://localhost/easy-password/assets/img/icon.ico">
+	<link href="http://localhost/easy-password/assets/css/toastr.min.css" rel="stylesheet"/>
+
+
 
 	<!-- Custom styles for this template -->
 	<link href="http://localhost/easy-password/assets/pnl/css/style.css" rel="stylesheet">

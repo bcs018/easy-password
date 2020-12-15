@@ -15,7 +15,10 @@ class PainelController extends Controller {
 
     public function inserirCat(){
         if(!isset($_POST['nomeCat']) || empty($_POST['nomeCat'])){
-            $_SESSION['message'] = '001';
+            $_SESSION['message'] = "<script>
+                                        toastr.error('Nome da categoria em branco!');
+                                    </script>";
+
             header("Location: ". BASE_URI."/painel");
             exit;
         }
@@ -25,7 +28,9 @@ class PainelController extends Controller {
         $painel = new Painel;
         $painel->inserirCate($categoria);
 
-        $_SESSION['message'] = '002';
+        $_SESSION['message'] = "<script>
+                                    toastr.success('Cadastro feito com sucesso!');
+                                </script>";
 
         header("Location: ". BASE_URI."/painel");
         exit;   
