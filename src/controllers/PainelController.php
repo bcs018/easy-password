@@ -48,10 +48,24 @@ class PainelController extends Controller {
         exit;
     }
     
-    public function consultarItemCate($id){
+    public function consultarItemCat($id){
         $painel = new Painel;
         $dados = $painel->consultarCate($id['id']);
 
-        //echo json_encode(['nomeCategoria'=>$sql['nome_categoria']]);
+        $categoria = [
+                      'nomeCategoria' => $dados['nome_categoria'], 
+                      'id'            => $dados['categoria_id']
+                     ];
+        
+        echo json_encode($categoria);
+        exit;
+    }
+
+    public function editarCat($id){
+        $painel = new Painel;
+        $painel->editarCate($id['id'], $_POST['nome']);
+
+        echo json_encode(true);
+        exit;
     }
 }

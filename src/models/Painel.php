@@ -33,7 +33,11 @@ class Painel extends Model {
         return $sql->fetch();
     }
 
-    public function editarCate($id){
-        
+    public function editarCate($id, $nomeCate){
+        $sql = "UPDATE categoria SET nome_categoria = ? WHERE categoria_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $nomeCate);
+        $sql->bindValue(2, $id);
+        $sql->execute();
     }
 } 
