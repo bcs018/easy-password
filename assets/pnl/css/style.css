@@ -39,34 +39,10 @@ a, a:hover, a:focus {
     height: 100%;
 }
 
-/* Bootstrap Modifications */
-.modal-header {
-	background: #68dff0;
+/* Edição do bootstrap */
+.col-form-label {
+    font-size: 17px;
 }
-
-.modal-title {
-	color: white;
-}
-
-.btn-round {
-	border-radius: 20px;
-	-webkit-border-radius: 20px;
-}
-
-.accordion-heading .accordion-toggle {
-	display: block;
-	cursor: pointer;
-	border-top: 1px solid #F5F5F5;
-	padding: 5px 0px;
-	line-height: 28.75px;
-	text-transform: uppercase;
-	color: #1a1a1a;
-	background-color: #ffffff;
-	outline: none !important;
-	text-decoration: none;
-}	
-
-
 
 /*Theme Backgrounds*/
 

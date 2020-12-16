@@ -49,6 +49,6 @@ class PainelController extends Controller {
     }
     
     public function editarCat($id){
-        
+        echo "Cheguei no editar";
     }
 }
