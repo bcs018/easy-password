@@ -13,6 +13,10 @@ class PainelController extends Controller {
         $this->render('painel/cadCategoria', $categorias);
     }
 
+    public function visualizarSenha(){
+        $this->render('painel/visSenha');
+    }
+
     public function inserirCat(){
         if(!isset($_POST['nomeCat']) || empty($_POST['nomeCat'])){
             $_SESSION['message'] = "<script>

@@ -38,14 +38,14 @@
 					<p class="centered"><a id="color_a" href="login.html">Sair</a></p>
 
 					<li class="mt">
-						<a class="active" href="<?php echo BASE_URI; ?>/painel">
+						<a class="" href="<?php echo BASE_URI; ?>/painel">
 							<i class="fa fa-plus"></i>
 							<span>Cadastrar categoria</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="javascript:;">
+						<a href="<?php echo BASE_URI; ?>/painel/visualizar-senha">
 							<i class="fa fa-eye"></i>
 							<span>Visualizar senhas</span>
 						</a>

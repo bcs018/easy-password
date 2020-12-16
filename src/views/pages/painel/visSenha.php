@@ -6,32 +6,13 @@
         <div class="row mt">
             <div class="col-lg-12">
                 <div class="form-panel">
-                    <h2 class="mb"><i class="fa fa-angle-right"></i> Cadastro de categorias &nbsp
-                       <i id="button" aria-describedby="tooltip" class="fa fa-info-circle" aria-hidden="true"></i>
-                        <div id="tooltip" role="tooltip">
-                            Ao cadastrar uma categoria, você pode vincular suas senhas a essa categoria <br>
-                            EX: Senha XXX da categoria Facebook <br><br>
-                            A vinculação pode ser feita no momento de salvar a senha ou no menu Visualizar senhas <br> do painel de controle
-                            <div id="arrow" data-popper-arrow></div>
-                        </div>
-                    </h2>
-                    <form class="form-horizontal style-form" method="post"
-                        action="<?php echo BASE_URI; ?>/inserir-categoria">
-                        <div class="form-group">
-                            <label class="form-label">Nome da categoria</label>
-                            <div class="col-sm-10">
-                                <input type="text" name="nomeCat" class="form-control">
-                                <br>
-                                <input class="btn btn-primary" type="submit" value="Cadastrar">
-                            </div>
-                        </div>
-                    </form>
-                    <br><br>
-                    <h4>Categorias cadastradas</h4>
+                    <h2 class="mb"><i class="fa fa-angle-right"></i> Minhas senhas </h2>
+                    <br>
 
                     <table class="table table-hover">
                         <thead>
                             <tr>
+                                <th scope="col">Senha</th>
                                 <th scope="col">Categoria</th>
                                 <th scope="col">Acão</th>
                             </tr>
@@ -40,7 +21,8 @@
 
                             <?php if (empty($categorias)) :
                                 echo '<tr>
-                                        <th> Não há categorias a mostrar </th>
+                                        <th> Não há senhas a mostrar </th>                
+                                        <th></th>
                                         <th></th>
                                       </tr>';
                             else :
@@ -83,12 +65,12 @@
                             </div>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
 </section>
+
 <section id="main-content">
     <section class="wrapper">
     <center> 
