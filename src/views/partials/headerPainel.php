@@ -13,12 +13,57 @@
 
 	<link href="http://localhost/easy-password/assets/pnl/font-awesome/css/font-awesome.css" rel="stylesheet" />
 	<link rel="shortcut icon" href="http://localhost/easy-password/assets/img/icon.ico">
-	<link href="http://localhost/easy-password/assets/css/toastr.min.css" rel="stylesheet"/>
+	<link href="http://localhost/easy-password/assets/css/toastr.min.css" rel="stylesheet" />
 
 	<!-- Custom styles for this template -->
 	<link href="http://localhost/easy-password/assets/pnl/css/style.css" rel="stylesheet">
 	<link href="http://localhost/easy-password/assets/pnl/css/style-responsive.css" rel="stylesheet">
 
+	<style>
+		#tooltip {
+			background: #333;
+			color: white;
+			font-weight: bold;
+			padding: 4px 8px;
+			font-size: 13px;
+			border-radius: 4px;
+			display: none;
+		}
+
+		#tooltip[data-show] {
+			display: block;
+		}
+
+		#arrow,
+		#arrow::before {
+			position: absolute;
+			width: 8px;
+			height: 8px;
+			z-index: -1;
+		}
+
+		#arrow::before {
+			content: '';
+			transform: rotate(45deg);
+			background: #333;
+		}
+
+		#tooltip[data-popper-placement^='top']>#arrow {
+			bottom: -4px;
+		}
+
+		#tooltip[data-popper-placement^='bottom']>#arrow {
+			top: -4px;
+		}
+
+		#tooltip[data-popper-placement^='left']>#arrow {
+			right: -4px;
+		}
+
+		#tooltip[data-popper-placement^='right']>#arrow {
+			left: -4px;
+		}
+	</style>
 </head>
 
 <body>

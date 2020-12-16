@@ -21,6 +21,10 @@ $('#fechar').on('click', function(){
     window.location.reload();
 })
 
+$('#pop').on('click', function(){
+})
+
+
 function consultarItem(id){
     $.ajax({
         url: '/easy-password/public/consultar-categoria/'+id,
