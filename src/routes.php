@@ -8,6 +8,7 @@ $router->get('/sobre/{nome}', 'HomeController@sobreP');
 $router->get('/sobre', 'HomeController@sobre');
 
 $router->get('/login', 'LoginController@index');
+$router->get('/sair', 'LoginController@sair');
 $router->get('/cadastre-se', 'CadastroController@index');
 $router->get('/painel', 'PainelController@index');
 $router->get('/painel/visualizar-senha', 'PainelController@visualizarSenha');

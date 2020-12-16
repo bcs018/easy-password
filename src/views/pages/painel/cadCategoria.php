@@ -1,4 +1,9 @@
-<?php $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
+<?php 
+if(!isset($_SESSION['log'])){
+    $_SESSION['errorLog'] = '001';
+    header('Location: '.BASE_URI);
+}
+$render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
 
 <section id="main-content">
     <section class="wrapper">

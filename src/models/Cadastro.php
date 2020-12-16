@@ -5,7 +5,7 @@ use \core\Model;
 class Cadastro extends Model {
 
     public function verLogin($login){   
-        $sql = "SELECT * FROM usuarios WHERE login = ?";
+        $sql = "SELECT * FROM usuario WHERE login = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $login);
         $sql->execute();
@@ -18,15 +18,15 @@ class Cadastro extends Model {
     }
 
     public function inserir($post){
-        if(!isset($post['nick'])){
-            $post['nick'] = '';
+        if(empty($post['nick'])){
+            $post['nick'] = 'Sem nome';
         }
 
         if($this->verLogin($post['login']) == 1){
             return 1;
         }
 
-        $sql = "INSERT INTO usuarios (nickname, login, senha)
+        $sql = "INSERT INTO usuario (nickname, login, senha)
                 VALUES (?,?,?)";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $post['nick']);

@@ -37,4 +37,9 @@ class LoginController extends Controller {
         //Autenticação inválida
         echo json_encode(['succes'=>'000']);
     }
-}
+
+    public function sair(){
+        unset($_SESSION['log']);
+        header("Location: ".BASE_URI);
+    }
+} 

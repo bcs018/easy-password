@@ -34,9 +34,13 @@
 			<div id="sidebar" class="nav-collapse ">
 				<ul class="sidebar-menu" id="nav-accordion">
 
-					<h5 class="centered">Marcel Newman</h5>
-					<p class="centered"><a id="color_a" href="login.html">Sair</a></p>
-
+					<h5 class="centered"><?php echo $_SESSION['log']['nick']; ?> &nbsp <i id="button" aria-describedby="tooltip" class="fa fa-info-circle" aria-hidden="true"></i></h5>
+					<p class="centered"><a id="color_a" href="<?php echo BASE_URI;?>/sair">Sair</a></p>
+					<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
+					<div id="tooltip" role="tooltip">
+						Você pode mudar seu nome clicando no menu "Dados cadastrais"!	
+						<div id="arrow" data-popper-arrow></div>
+                    </div>
 					<li class="mt">
 						<a class="" href="<?php echo BASE_URI; ?>/painel">
 							<i class="fa fa-plus"></i>

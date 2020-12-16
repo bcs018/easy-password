@@ -21,7 +21,12 @@
         <script src="http://localhost/easy-password/assets/js/cadastro.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/login.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
-
+    
+    <?php 
+    if(isset($_SESSION['errorLog'])): ?>
+        <?php unset($_SESSION['errorLog']); ?>
+        <script> toastr.error("Usuário não logado!"); </script>
+    <?php endif; ?>
 
     </body>
 </html>
