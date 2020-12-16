@@ -13,7 +13,7 @@ $router->get('/painel', 'PainelController@index');
 
 $router->post('/inserir-categoria', 'PainelController@inserirCat');
 $router->get('/excluir-categoria/{id}', 'PainelController@excluirCat');
-$router->post('/editar-categoria/{id}', 'PainelController@editarCat');
+$router->post('/consultar-categoria/{id}', 'PainelController@consultarItemCate');
 
 /* Rotas de requisições ajax */
 $router->post('/cadastre-se/valida-login', 'CadastroController@validarLogin');

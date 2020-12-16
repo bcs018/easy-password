@@ -24,6 +24,15 @@ class Painel extends Model {
         $sql->execute();
     }
 
+    public function consultarCate($id){
+        $sql = "SELECT * FROM categoria WHERE categoria_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $id);
+        $sql->execute();
+
+        return $sql->fetch();
+    }
+
     public function editarCate($id){
         
     }

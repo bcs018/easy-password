@@ -39,7 +39,8 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
                                         <th scope="row"><?php echo $categoria['nome_categoria']; ?></th>
                                         <th scope="row"> <a href="<?php echo BASE_URI . '/excluir-categoria/' . $categoria['categoria_id']; ?>">Excluir</a>
                                             &nbsp | &nbsp
-                                            <a data-toggle="modal" data-target="#exampleModal" href="">Editar</a>
+                                            <a data-toggle="modal" data-target="#exampleModal" href="" onclick="consultarItem(<?php echo $categoria['categoria_id']; ?>)">Editar</a>
+                                            <input type="hidden" value="<?php echo $categoria['categoria_id']; ?>">
                                         </th>
                                     </tr>
                                 <?php endforeach; ?>
@@ -47,7 +48,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
                         </tbody>
                     </table>
 
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="categoria" tabindex="-1" role="dialog" aria-labelledby="categoriaLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -57,7 +58,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Nome categoria</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <input type="text" class="form-control" id="nomeCate>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -81,6 +82,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']);
 <script src="http://localhost/easy-password/assets/js/bootstrap.min.js"></script>
 <script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/main.js"></script>
+<script src="http://localhost/easy-password/assets/js/editarCate.js"></script>
 
 <!--common script for all pages-->
 <script src="http://localhost/easy-password/assets/pnl/js/common-scripts.js"></script>
