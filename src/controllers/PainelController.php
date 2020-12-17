@@ -81,5 +81,17 @@ class PainelController extends Controller {
     public function editarNick(){
         $painel = new Painel;
         $painel->editNick(addslashes($_POST['nick']), $_POST['id']);
+        $_SESSION['log']['nick'] = addslashes($_POST['nick']);
+        echo json_encode(true);
+        exit;
+    }
+
+    /* Colocar regra: Senha deve conter mais que 6 carac */
+    public function editarSenha(){
+        $painel = new Painel;
+        $painel->editSenha(addslashes($_POST['nick']), $_POST['id']);
+        $_SESSION['log']['nick'] = addslashes($_POST['nick']);
+        echo json_encode(true);
+        exit;
     }
 }

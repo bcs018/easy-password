@@ -11,9 +11,10 @@ class Painel extends Model {
     }
     
     public function inserirCate($cat){
-        $sql =  "INSERT INTO categoria (nome_categoria) VALUES (?)";
+        $sql =  "INSERT INTO categoria (nome_categoria, usuario_id) VALUES (?,?)";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $cat);
+        $sql->bindValue(2, $_SESSION['log']['id']);
         $sql->execute();
     }
 
@@ -41,7 +42,20 @@ class Painel extends Model {
         $sql->execute();
     }
 
+    /**Ja esta recebendo o id via post, não enviar via ajax */
     public function editNick($nick, $id){
-        $sql = "UPDATE categoria SET nome_categoria = ? WHERE categoria_id = ?";
+        $sql = "UPDATE usuario SET nickname = ? WHERE usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $nick);
+        $sql->bindValue(2, $id);
+        $sql->execute();
+    }
+
+    public function editSenha($senha, $id){
+        $sql = "UPDATE usuario SET senha = ? WHERE usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, md5($senha));
+        $sql->bindValue(2, $id);
+        $sql->execute();
     }
 } 
