@@ -40,4 +40,8 @@ class Painel extends Model {
         $sql->bindValue(2, $id);
         $sql->execute();
     }
+
+    public function editNick($nick, $id){
+        $sql = "UPDATE categoria SET nome_categoria = ? WHERE categoria_id = ?";
+    }
 } 

@@ -12,6 +12,9 @@ $router->get('/sair', 'LoginController@sair');
 $router->get('/cadastre-se', 'CadastroController@index');
 $router->get('/painel', 'PainelController@index');
 $router->get('/painel/visualizar-senha', 'PainelController@visualizarSenha');
+$router->get('/painel/dados-cadastrais', 'PainelController@dadosCadastrais');
+
+$router->post('/painel/alterar-nick/{id}', 'PainelController@editarNick');
 
 $router->post('/inserir-categoria', 'PainelController@inserirCat');
 $router->get('/excluir-categoria/{id}', 'PainelController@excluirCat');

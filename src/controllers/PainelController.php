@@ -17,6 +17,11 @@ class PainelController extends Controller {
         $this->render('painel/visSenha');
     }
 
+    public function dadosCadastrais(){
+
+        $this->render('painel/dadCadastral');
+    }
+
     public function inserirCat(){
         if(!isset($_POST['nomeCat']) || empty($_POST['nomeCat'])){
             $_SESSION['message'] = "<script>
@@ -71,5 +76,10 @@ class PainelController extends Controller {
 
         echo json_encode(true);
         exit;
+    }
+
+    public function editarNick(){
+        $painel = new Painel;
+        $painel->editNick(addslashes($_POST['nick']), $_POST['id']);
     }
 }

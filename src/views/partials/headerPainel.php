@@ -36,7 +36,6 @@
 
 					<h5 class="centered"><?php echo $_SESSION['log']['nick']; ?> &nbsp <i id="button" aria-describedby="tooltip" class="fa fa-info-circle" aria-hidden="true"></i></h5>
 					<p class="centered"><a id="color_a" href="<?php echo BASE_URI;?>/sair">Sair</a></p>
-					<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
 					<div id="tooltip" role="tooltip">
 						Você pode mudar seu nome clicando no menu "Dados cadastrais"!	
 						<div id="arrow" data-popper-arrow></div>
@@ -53,11 +52,13 @@
 							<i class="fa fa-eye"></i>
 							<span>Visualizar senhas</span>
 						</a>
-						<ul class="sub">
-							<li><a href="calendar.html">Calendar</a></li>
-							<li><a href="gallery.html">Gallery</a></li>
-							<li><a href="todo_list.html">Todo List</a></li>
-						</ul>
+					</li>
+
+					<li class="sub-menu">
+						<a href="<?php echo BASE_URI; ?>/painel/dados-cadastrais">
+							<i class="fa fa-user"></i>
+							<span>Dados cadastrais</span>
+						</a>
 					</li>
 				</ul>
 			</div>

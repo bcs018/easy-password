@@ -1,5 +1,6 @@
 <script>
     const button = document.querySelector('#button');
+    const button2 = document.querySelector('#button2');
     const tooltip = document.querySelector('#tooltip');
 
     let popperInstance = null;
