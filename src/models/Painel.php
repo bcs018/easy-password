@@ -4,8 +4,10 @@ use \core\Model;
 
 class Painel extends Model {
     public function listaCate(){
-        $sql = "SELECT * FROM categoria";
-        $sql = $this->db->query($sql);
+        $sql = "SELECT * FROM categoria WHERE usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->execute();
 
         return $sql->fetchAll();
     }
@@ -42,7 +44,6 @@ class Painel extends Model {
         $sql->execute();
     }
 
-    /**Ja esta recebendo o id via post, não enviar via ajax */
     public function editNick($nick, $id){
         $sql = "UPDATE usuario SET nickname = ? WHERE usuario_id = ?";
         $sql = $this->db->prepare($sql);
@@ -58,4 +59,4 @@ class Painel extends Model {
         $sql->bindValue(2, $id);
         $sql->execute();
     }
-} 
+}  

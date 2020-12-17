@@ -27,7 +27,7 @@
 				<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
 			</div>
 
-			<a href="" class="logo"><b>easy password</b></a>
+			<a href="" class="logo"><b>easy password</b></a> <a class="logo homeP" href="<?php echo BASE_URI; ?>">Home</a>
 		</header>
 
 		<aside>

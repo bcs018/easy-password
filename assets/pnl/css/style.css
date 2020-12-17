@@ -44,6 +44,21 @@ a, a:hover, a:focus {
     font-size: 17px;
 }
 
+
+.homeP{
+    margin-left: 60px;
+}
+
+.homeP:hover{
+    color: #fff;
+    font-size: 24px;
+    transition: all 0.4s;
+    -webkit-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+}
+
+
 /*Theme Backgrounds*/
 
 .bg-theme {

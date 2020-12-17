@@ -11,7 +11,8 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
         <div class="row mt">
             <div class="col-lg-12">
                 <div class="form-panel">
-                    <h2 class="mb"><i class="fa fa-angle-right"></i> Dados cadastrais </h2>
+                    <h2 class="mb"><i class="fa fa-angle-right"></i> Dados cadastrais </h2><hr>
+                    <h4>Alterar nickname</h4><br>
                     <div class="form-group">
                         <label class="form-label">Alterar ou adicionar nickname (apelido)</label>
                         <div class="col-sm-10">
@@ -21,12 +22,18 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                             <button class="btn btn-primary" id="altNick">Alterar</button>
                         </div>
                     </div>
-                    <hr>
+                    <hr><br>
+                    <h4>Alterar senha</h4><br>
                     <div class="form-group">
-                        <label class="form-label">Alterar senha</label>
+                        <label class="form-label">Nova senha</label>
                         <div class="col-sm-10">
-                            <input type="text" id="senhaCad" name="senha" placeholder="Insira a nova senha" class="form-control">
+                            <input type="password" id="senhaCad" name="senha" placeholder="Insira a nova senha" class="form-control">
                             <input type="hidden" id="senhaId" value="<?php echo $_SESSION['log']['id']; ?> ">
+                        </div>
+                        <br>
+                        <label class="form-label">Repita a nova senha</label>
+                        <div class="col-sm-10">
+                            <input type="password" id="senhaCadRep" name="senhaRep" placeholder="Repita a nova senha" class="form-control">
                             <br>
                             <button class="btn btn-primary" id="altSen">Alterar</button>
                         </div>

@@ -78,20 +78,32 @@ class PainelController extends Controller {
         exit;
     }
 
-    public function editarNick(){
+    public function editarNick($id){
         $painel = new Painel;
-        $painel->editNick(addslashes($_POST['nick']), $_POST['id']);
+        $painel->editNick(addslashes($_POST['nick']), $id['id']);
         $_SESSION['log']['nick'] = addslashes($_POST['nick']);
         echo json_encode(true);
         exit;
     }
 
     /* Colocar regra: Senha deve conter mais que 6 carac */
-    public function editarSenha(){
+    public function editarSenha($id){
         $painel = new Painel;
-        $painel->editSenha(addslashes($_POST['nick']), $_POST['id']);
-        $_SESSION['log']['nick'] = addslashes($_POST['nick']);
+
+        if(strlen($_POST['senha']) < 6){
+            // Erro 001 = Senha menor que 6 caracteres
+            echo json_encode(['error'=>'001']);
+            exit;
+        }
+
+        if(addslashes($_POST['senha']) != addslashes($_POST['senhaRep'])){
+            // Erro 002 = Senhas diferentes
+            echo json_encode(['error'=>'002']);
+            exit;
+        }
+
+        $painel->editSenha(addslashes($_POST['senha']), $id['id']);
         echo json_encode(true);
         exit;
     }
-}
+} 

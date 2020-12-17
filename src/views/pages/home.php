@@ -12,7 +12,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="carac">Quantidade de caracteres</label>
-                                <input type="number" class="form-control" id="carac"  onblur="verQtdCaracter()" name="qtd-carac" aria-describedby="passwordHelpInline" autofocus>
+                                <input type="number" class="form-control" id="carac"  onblur="verQtdCaracter()" name="qtd-carac" aria-describedby="passwordHelpInline">
                                 <div class="invalid-feedback">
                                      Por favor, informe de 1 até 30 caracteres.
                                 </div>

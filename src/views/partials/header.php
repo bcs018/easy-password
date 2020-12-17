@@ -31,7 +31,11 @@
                             <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/cadastre-se">Cadastre-se</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/login">Login</a>
+                            <?php if(!isset($_SESSION['log'])): ?>
+                                <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/login">Login</a>
+                            <?php else: ?>
+                                <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/painel">Painel</a>
+                            <?php endif; ?>
                         </li>
                     </ul>
                 </div>
