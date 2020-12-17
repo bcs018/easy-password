@@ -89,7 +89,17 @@
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Selecione a
-                                                categoria</label>
+                                                categoria</label><br>
+                                            <div class="form-check form-check-inline">
+                                                <?php foreach ($categorias as $categoria): ?>
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
+                                                    value="<?php echo $categoria['categoria_id']; ?>">
+                                                <label class="form-check-label"
+                                                    for="inlineCheckbox1"><?php echo $categoria['nome_categoria']; ?>
+                                                    </label> &nbsp
+                                                <?php endforeach; ?>
+                                            </div>
+
                                             <select class="form-control" id="selectCategoria">
                                                 <option value="0">Sem categoria</option>
                                                 <?php foreach ($categorias as $categoria): ?>
@@ -101,6 +111,14 @@
                                             <label for="recipient-name" class="col-form-label">Senha a ser salva (altere
                                                 se quiser)</label>
                                             <input type="text" class="form-control" id="senhaSalvar" value="">
+
+
+
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
+                                                    value="option2">
+                                                <label class="form-check-label" for="inlineCheckbox2">2</label>
+                                            </div>
                                         </div>
                                     </div>
 

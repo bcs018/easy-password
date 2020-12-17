@@ -13,7 +13,7 @@
         <title><?php echo $title; ?></title>
 
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#list-example">
         <header>  
             <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #ffdc7a;">
                 <a class="navbar-brand" href="<?php echo BASE_URI; ?>">
