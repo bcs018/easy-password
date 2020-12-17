@@ -13,7 +13,6 @@ $('#altNick').on('click', function(){
     })
 })
 
-/* Colocar regra: Senha deve conter mais que 6 carac */
 $('#altSen').on('click', function(){
     $.ajax({
         url: '/easy-password/public/painel/alterar-senha/' + $('#senhaId').val(),

@@ -12,7 +12,7 @@ class Senha extends Model {
         ['!','@','#','$','%','&','*','/','?','+','-', '<', '>', ]
       ];
 
-    public function __construct($post){
+    public function __construct($post=0){
         $this->post = $post;
     }
 
@@ -137,4 +137,8 @@ class Senha extends Model {
 
         return $senha;
     } 
+
+    public function inserirSen(){
+
+    }
 }

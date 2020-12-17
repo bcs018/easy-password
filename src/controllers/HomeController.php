@@ -3,10 +3,17 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\Senha; 
+use \src\models\Painel; 
 
 class HomeController extends Controller {
 
     public function index() {
+        if(isset($_SESSION['log'])){
+            $painel = new Painel;
+            $this->render('home', ['categorias'=>$painel->listaCate()]);
+            exit;
+        }
+                
         $this->render('home');
     }
 
