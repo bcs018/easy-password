@@ -4,7 +4,7 @@ use \core\Model;
 
 class Painel extends Model {
     public function listaCate(){
-        $sql = "SELECT * FROM categoria WHERE usuario_id = ?";
+        $sql = "SELECT * FROM categoria WHERE usuario_id = ? OR usuario_id is null";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $_SESSION['log']['id']);
         $sql->execute();

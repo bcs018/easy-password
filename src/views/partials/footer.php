@@ -26,8 +26,11 @@
     
     <?php 
     if(isset($_SESSION['errorLog'])): ?>
-        <?php unset($_SESSION['errorLog']); ?>
-        <script> toastr.error("Usuário não logado!"); </script>
+        <?php 
+        echo $_SESSION['errorLog'];
+        unset($_SESSION['errorLog']);
+         ?>
+        
     <?php endif; ?>
 
     </body>

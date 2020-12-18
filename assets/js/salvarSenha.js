@@ -6,6 +6,8 @@ $('#salvar').on('click', function(){
             return;
         }
         $('#senhaSalvar').val($('#senha').val());
+        $('[name=senhaComparar]').val($('#senha').val());
+
         $('#save').modal('show');
     }
 });

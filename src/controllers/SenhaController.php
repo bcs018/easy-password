@@ -3,23 +3,25 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\Senha; 
+use \src\models\Cadastro; 
 
 class SenhaController extends Controller {
 
-    public function inserirSenha(){
-        $senha      = htmlspecialchars(addslashes($_POST['senha']));
-        $alterou    = $_POST['alterou'];
-        $categoria  = $_POST['categoria'];
+    public function salvarSenha(){
+        $categorias = $_POST['categoria'];
+        $senhaGravar = addslashes($_POST['senhaSalvar']);
+        $senhaComparar =  addslashes($_POST['senhaComparar']);
+        $alterado = 0;
 
-        if(empty($senha)){
-            echo json_encode(['error'=>'001']);
-            exit;
+        if($senhaGravar != $senhaComparar){
+            $alterado = 1;
         }
 
-        $senha = new Senha();
+        $s = new Senha();
 
-        $senha->inserirSen($senha, $alterou, $categoria);
-
+        $s->inserirSen($senhaGravar, $alterado, $categorias);
+        
+        header("Location: ". BASE_URI);
     }
 
 }

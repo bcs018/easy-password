@@ -30,8 +30,8 @@ class HomeController extends Controller {
             exit;
         }
 
-        $s = new Senha($_POST);
-        $senha = ['senha' => implode('', $s->gerarSenha())];
+        $s = new Senha();
+        $senha = ['senha' => implode('', $s->gerarSenha($_POST))];
 
         echo json_encode($senha);
     }

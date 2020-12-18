@@ -22,9 +22,7 @@ $router->get('/excluir-categoria/{id}', 'PainelController@excluirCat');
 $router->post('/consultar-categoria/{id}', 'PainelController@consultarItemCat');
 $router->post('/editar-categoria/{id}', 'PainelController@editarCat');
 
-/**OOOOOOO */
-$router->post('/salvar-senha', 'SenhaController@SalvarSenha');
-
+$router->post('/salvar-senha', 'SenhaController@salvarSenha');
 
 /* Rotas de requisições ajax */
 $router->post('/cadastre-se/valida-login', 'CadastroController@validarLogin');

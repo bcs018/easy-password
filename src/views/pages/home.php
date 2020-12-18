@@ -67,34 +67,29 @@
                             </div>
                         <?php else : ?>
                             <b>
-                                <p>OBS: Para salvar sua senha, você deve se cadastrar e logar no site, e aparecera uma opção
-                                    aqui para salvar a senha!</p>
+                                <p>OBS: Para salvar sua senha, você precisa se cadastrar e logar no site, e aparecerá uma opção
+                                    aqui para salvar sua senha!</p>
                             </b>
                         <?php endif; ?>
                         <br>
                         <input type="submit" class="btn btn-primary" value="Gerar senha">
                     </form>
 
-
+                    <!-- COLOCAR REGRA PARA NAO CADASTRAR SEM CATEGORIA MARCADO!!!! -->
                     <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="categoriaLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="exampleModalLabel">Salvar senha</h4>
                                 </div>
-                                <form method="POST" action="http://localhost/easy-password/public/">
+                                <form method="POST" action="/easy-password/public/salvar-senha">
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Selecione as
                                                 categorias da senha</label><br>
 
-                                            <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" value="0" id="flexCheckDefault" name="categoria[]">
-                                                <label class="form-check-label" for="flexCheckDefault">
-                                                    <b> Sem categoria</b>
-                                                </label>
-                                            </div>
-                                            <?php $i=0;
+                                            <?php 
+                                            $i=0;
                                             foreach ($categorias as $categoria) : ?>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="<?php echo $categoria['categoria_id']; ?>" id="flexCheckDefault<?php echo $i;?>" name="categoria[]">
@@ -107,8 +102,8 @@
                                             <br>
                                             <label for="recipient-name" class="col-form-label">Senha a ser salva (altere
                                                 se quiser)</label>
-                                            <input type="text" class="form-control" id="senhaSalvar" value="">
-
+                                            <input type="text" class="form-control" id="senhaSalvar" value="" name="senhaSalvar">
+                                            <input type="hidden" name="senhaComparar" readonly>
                                         </div>
                                     </div>
 

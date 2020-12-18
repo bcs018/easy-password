@@ -4,7 +4,6 @@ use \core\Model;
 
 class Senha extends Model {
 
-    private $post;
     private $caracteres = [
         [1,2,3,4,5,6,7,8,9,0],
         ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','ç'],
@@ -12,64 +11,60 @@ class Senha extends Model {
         ['!','@','#','$','%','&','*','/','?','+','-', '<', '>', ]
       ];
 
-    public function __construct($post=0){
-        $this->post = $post;
-    }
-
-    public function gerarSenha(){
+    public function gerarSenha($post){
         /* Se as opções caracter especiais, letra maiuscula, letra minuscula, e numeros estiver marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){              
-            return $this->calcularSenha($this->post['qtd_carac'], [0,3]);
+        if(isset($post['carac_espec']) && isset($post['letra_mai']) && isset($post['letra_min']) && isset($post['numero'])){              
+            return $this->calcularSenha($post['qtd_carac'], [0,3]);
         }
 
         /* Se as opções letra maiuscula, letra minuscula, e numeros estiver marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){       
-            return $this->calcularSenha($this->post['qtd_carac'], [0,2]);
+        if(isset($post['letra_mai']) && isset($post['letra_min']) && isset($post['numero'])){       
+            return $this->calcularSenha($post['qtd_carac'], [0,2]);
         }
 
         /* Se as opções especiais, letra maiuscula, e numeros estiver marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['numero'])){       
-            return $this->calcularSenha($this->post['qtd_carac'], [0,2,3], 2);
+        if(isset($post['carac_espec']) && isset($post['letra_mai']) && isset($post['numero'])){       
+            return $this->calcularSenha($post['qtd_carac'], [0,2,3], 2);
         }
 
         /* Se as opções especiais, letra maiuscula, e numeros estiver marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_min']) && isset($this->post['numero'])){       
-            return $this->calcularSenha($this->post['qtd_carac'], [0,1,3], 2);
+        if(isset($post['carac_espec']) && isset($post['letra_min']) && isset($post['numero'])){       
+            return $this->calcularSenha($post['qtd_carac'], [0,1,3], 2);
         }
 
         /* Se as opções letra minuscula e numeros estiver marcadas */
-        if(isset($this->post['letra_min']) && isset($this->post['numero'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [0,1]);  
+        if(isset($post['letra_min']) && isset($post['numero'])){
+            return $this->calcularSenha($post['qtd_carac'], [0,1]);  
         }
 
         /* Se as opções caracter especiais, letra maiuscula, letra minuscula marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [1,3]); 
+        if(isset($post['carac_espec']) && isset($post['letra_mai']) && isset($post['letra_min'])){   
+            return $this->calcularSenha($post['qtd_carac'], [1,3]); 
         }
 
         /* Se as opções caracter especiais, letra maiuscula marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [2,3]);
+        if(isset($post['carac_espec']) && isset($post['letra_mai'])){   
+            return $this->calcularSenha($post['qtd_carac'], [2,3]);
         }
 
         /* Se as opções caracter especiais, letra minuscula marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_min'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [1,3], 1);
+        if(isset($post['carac_espec']) && isset($post['letra_min'])){   
+            return $this->calcularSenha($post['qtd_carac'], [1,3], 1);
         }
 
         /* Se as opções caracter especiais, numero marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['numero'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [0,3], 1);
+        if(isset($post['carac_espec']) && isset($post['numero'])){   
+            return $this->calcularSenha($post['qtd_carac'], [0,3], 1);
         }
 
         /* Se as opção maiusculo e minusculo estiver marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['letra_min'])){  
-            return $this->calcularSenha($this->post['qtd_carac'], [1,2]);
+        if(isset($post['letra_mai']) && isset($post['letra_min'])){  
+            return $this->calcularSenha($post['qtd_carac'], [1,2]);
          }
 
         /* Se as opção maiusculo e numero estiver marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['numero'])){  
-            return $this->calcularSenha($this->post['qtd_carac'], [0,2], 1);
+        if(isset($post['letra_mai']) && isset($post['numero'])){  
+            return $this->calcularSenha($post['qtd_carac'], [0,2], 1);
         }
 
         /**
@@ -77,23 +72,23 @@ class Senha extends Model {
          */
 
         /* Se as opção numeros estiver marcadas */
-        if(isset($this->post['numero'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [0,0]);
+        if(isset($post['numero'])){
+            return $this->calcularSenha($post['qtd_carac'], [0,0]);
         }
 
         /* Se as opção minuscula estiver marcadas */
-        if(isset($this->post['letra_min'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [1,1]);
+        if(isset($post['letra_min'])){
+            return $this->calcularSenha($post['qtd_carac'], [1,1]);
         }
         
         /* Se as opção maiuscula estiver marcadas */
-        if(isset($this->post['letra_mai'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [2,2]);
+        if(isset($post['letra_mai'])){
+            return $this->calcularSenha($post['qtd_carac'], [2,2]);
         }
 
          /* Se as opção especial estiver marcadas */
-         if(isset($this->post['carac_espec'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [3,3]);
+         if(isset($post['carac_espec'])){
+            return $this->calcularSenha($post['qtd_carac'], [3,3]);
          }
     }
 
@@ -138,7 +133,30 @@ class Senha extends Model {
         return $senha;
     } 
 
-    public function inserirSen(){
+    public function inserirSen($senhaGravar, $alterou, $categorias){        
+        $sql = "INSERT INTO senha (senha_usu, usuario_id, alterado) 
+                VALUES (?,?,?)";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $senhaGravar);
+        $sql->bindValue(2, $_SESSION['log']['id']);
+        $sql->bindValue(3, $alterou);
+        $sql->execute();
 
+        /* Pega o ultimo id da senha inserida */
+        $sql = "SELECT last_insert_id() as 'ult'";
+        $idSenha = $this->db->query($sql)->fetch();
+
+        foreach($categorias as $categoria){
+            $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                    VALUES (?,?)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $categoria);
+            $sql->bindValue(2, $idSenha['ult']);
+            $sql->execute();
+        }
+
+        //Sera exibido uma mensagem na sessão que está destinada a erro de usuario não logado, para não criar outra sessão usei essa mesmo
+        $_SESSION['errorLog'] = '<script> toastr.success("Senha cadastrada com sucesso!"); </script>';
     }
+    
 }
