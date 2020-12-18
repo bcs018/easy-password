@@ -20,8 +20,12 @@ $('#save').on('hide.bs.modal', function (event) {
 
 /* ------- */
 
-/*$('#form3').on('submit', function(e){
+/*$('#form4').on('submit', function(e){
+       
     e.preventDefault();
+
+    console.log($('[name=categoria[0]]')).val();
+
     var alterou = 0;
 
     if($('#senhaSalvar').val() == ''){

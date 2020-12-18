@@ -146,13 +146,22 @@ class Senha extends Model {
         $sql = "SELECT last_insert_id() as 'ult'";
         $idSenha = $this->db->query($sql)->fetch();
 
-        foreach($categorias as $categoria){
+        if(empty($categorias)){
             $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
                     VALUES (?,?)";
             $sql = $this->db->prepare($sql);
-            $sql->bindValue(1, $categoria);
+            $sql->bindValue(1, 1);
             $sql->bindValue(2, $idSenha['ult']);
             $sql->execute();
+        }else{
+            foreach($categorias as $categoria){
+                $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                        VALUES (?,?)";
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(1, $categoria);
+                $sql->bindValue(2, $idSenha['ult']);
+                $sql->execute();
+            }
         }
 
         //Sera exibido uma mensagem na sessão que está destinada a erro de usuario não logado, para não criar outra sessão usei essa mesmo

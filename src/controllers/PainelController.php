@@ -14,7 +14,9 @@ class PainelController extends Controller {
     }
 
     public function visualizarSenha(){
-        $this->render('painel/visSenha');
+        $painel = new Painel();
+
+        $this->render('painel/visSenha', ['senhas'=>$painel->listSenhas()]);
     }
 
     public function dadosCadastrais(){
@@ -105,5 +107,9 @@ class PainelController extends Controller {
         $painel->editSenha(addslashes($_POST['senha']), $id['id']);
         echo json_encode(true);
         exit;
+    }
+
+    public function listarSenhas(){
+         
     }
 } 

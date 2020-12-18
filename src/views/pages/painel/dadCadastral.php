@@ -1,6 +1,6 @@
 <?php
 if (!isset($_SESSION['log'])) {
-    $_SESSION['errorLog'] = '001';
+    $_SESSION['errorLog'] = '<script> toastr.error("Usuário não logado!"); </script>';
     header('Location: ' . BASE_URI);
 }
 $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>

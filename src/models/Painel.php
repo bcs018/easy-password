@@ -59,4 +59,20 @@ class Painel extends Model {
         $sql->bindValue(2, $id);
         $sql->execute();
     }
+
+    public function listSenhas(){
+        $sql = "SELECT s.senha_usu, c.nome_categoria, s.alterado FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
 }  

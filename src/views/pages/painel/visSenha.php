@@ -1,6 +1,6 @@
 <?php 
 if(!isset($_SESSION['log'])){
-    $_SESSION['errorLog'] = '001';
+    $_SESSION['errorLog'] = '<script> toastr.error("Usuário não logado!"); </script>';
     header('Location: '.BASE_URI);
 }
 $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
@@ -19,28 +19,25 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                             <tr>
                                 <th scope="col">Senha</th>
                                 <th scope="col">Categoria</th>
+                                <th scope="col">Senha modificada</th>
                                 <th scope="col">Acão</th>
                             </tr>
                         </thead>
                         <tbody>
 
-                            <?php if (empty($categorias)) :
+                            <?php if (empty($senhas)) :
                                 echo '<tr>
                                         <th> Não há senhas a mostrar </th>                
                                         <th></th>
                                         <th></th>
                                       </tr>';
                             else :
-                                foreach ($categorias as $categoria) : ?>
+                                foreach ($senhas as $senha) : ?>
                             <tr>
-                                <th scope="row"><?php echo $categoria['nome_categoria']; ?></th>
-                                <th scope="row"> <a
-                                        href="<?php echo BASE_URI . '/excluir-categoria/' . $categoria['categoria_id']; ?>">Excluir</a>
-                                    &nbsp | &nbsp
-                                    <a data-toggle="modal" data-target="#exampleModal" href=""
-                                        onclick="consultarItem(<?php echo $categoria['categoria_id']; ?>)">Editar</a>
-                                    <input type="hidden" value="<?php echo $categoria['categoria_id']; ?>">
-                                </th>
+                                <th scope="row"><?php echo $senha['senha_usu']; ?></th>
+                                <th scope="row"><?php echo $senha['nome_categoria']; ?></th>
+                                <th scope="row"><?php echo $senha['alterado']; ?></th>
+                                
                             </tr>
                             <?php endforeach; ?>
                             <?php endif; ?>
