@@ -21,6 +21,20 @@ class Painel extends Model {
     }
 
     public function excluirCate($id){
+        $sql = "SELECT * FROM categoria c 
+                JOIN cat_sen cs
+                ON cs.categoria_id = c.categoria_id
+                JOIN senha s
+                ON s.senha_id = cs.senha_id
+                WHERE c.categoria_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $id);
+        $sql->execute();
+
+        if($sql->rowCount() > 0){
+            return true;
+        }
+        
         $sql = "DELETE FROM categoria WHERE categoria_id = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $id);
@@ -68,7 +82,8 @@ class Painel extends Model {
                 ON cs.senha_id = s.senha_id 
                 JOIN categoria c 
                 ON c.categoria_id = cs.categoria_id
-                WHERE u.usuario_id = ?";
+                WHERE u.usuario_id = ?
+                ORDER BY c.categoria_id";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $_SESSION['log']['id']);
         $sql->execute();

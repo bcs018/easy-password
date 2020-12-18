@@ -47,9 +47,14 @@ class PainelController extends Controller {
         exit;   
     }
 
-    public function excluirCat($id){
+    public function excluirCat($id){ 
         $painel = new Painel;
-        $painel->excluirCate($id['id']);
+        
+        if($painel->excluirCate($id['id'])){
+            $_SESSION['message'] = '<script> toastr.error("Não pode excluir a categoria pois tem uma senha vinculada a ela!"); </script>';
+            header("Location: ". BASE_URI."/painel");
+            exit;
+        }
 
         $_SESSION['message'] = "<script>
                                     toastr.success('Excluido com sucesso!');

@@ -36,7 +36,14 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                             <tr>
                                 <th scope="row"><?php echo $senha['senha_usu']; ?></th>
                                 <th scope="row"><?php echo $senha['nome_categoria']; ?></th>
-                                <th scope="row"><?php echo $senha['alterado']; ?></th>
+                                <th scope="row">
+                                    <?php if ($senha['alterado'] == 1): 
+                                        echo "SIM";
+                                    else: 
+                                        echo "NÃO";
+                                    endif; ?>
+                                </th>
+                                <th scope="row"> <a href="">Excluir</a> | <a href="">Editar</a> </th>
                                 
                             </tr>
                             <?php endforeach; ?>
