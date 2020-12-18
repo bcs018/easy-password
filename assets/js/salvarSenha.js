@@ -18,7 +18,7 @@ $('#save').on('hide.bs.modal', function (event) {
 
 /* ------- */
 
-$('#form3').on('submit', function(e){
+/*$('#form3').on('submit', function(e){
     e.preventDefault();
     var alterou = 0;
 
@@ -34,7 +34,9 @@ $('#form3').on('submit', function(e){
 
     $('#senhaSalvar').removeClass('is-invalid');
     
-    var categoria = $('#selectCategoria option:selected').val();
+    var categoria = $('[name=categoria[]]').val();
+
+    console.log(categoria);return;
 
     $.ajax({
         url: 'easy-password/public/salvar-senha',
@@ -57,5 +59,5 @@ $('#form3').on('submit', function(e){
         }
 
     });
-});
+});*/
 

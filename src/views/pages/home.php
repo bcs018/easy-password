@@ -1,4 +1,4 @@
-<?php $render('header', ['title'=>'easy password - Gerador de senhas']); ?>
+<?php $render('header', ['title' => 'easy password - Gerador de senhas']); ?>
 
 <main>
     <section>
@@ -14,8 +14,7 @@
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="carac">Quantidade de caracteres</label>
-                                <input type="number" class="form-control" id="carac" onblur="verQtdCaracter()"
-                                    name="qtd-carac" aria-describedby="passwordHelpInline">
+                                <input type="number" class="form-control" id="carac" onblur="verQtdCaracter()" name="qtd-carac" aria-describedby="passwordHelpInline">
                                 <div class="invalid-feedback">
                                     Por favor, informe de 1 até 30 caracteres.
                                 </div>
@@ -27,8 +26,7 @@
                         </div>
                         <div class="form-group">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="carac_espe" name="carac_espe"
-                                    value="1">
+                                <input class="form-check-input" type="checkbox" id="carac_espe" name="carac_espe" value="1">
                                 <label class="form-check-label" for="carac_espe">
                                     Caracteres especiais
                                 </label>
@@ -58,74 +56,65 @@
                                 </label>
                             </div>
                         </div>
-                        <?php if(isset($_SESSION['log'])): ?>
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="salvar" name="salvar" value="1">
-                                <label class="form-check-label" for="salvar" name="carac_espe">
-                                    Salvar senha
-                                </label>
+                        <?php if (isset($_SESSION['log'])) : ?>
+                            <div class="form-group">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="salvar" name="salvar" value="1">
+                                    <label class="form-check-label" for="salvar" name="carac_espe">
+                                        Salvar senha
+                                    </label>
+                                </div>
                             </div>
-                        </div>
-                        <?php else: ?>
-                        <b>
-                            <p>OBS: Para salvar sua senha, você deve se cadastrar e logar no site, e aparecera uma opção
-                                aqui para salvar a senha!</p>
-                        </b>
+                        <?php else : ?>
+                            <b>
+                                <p>OBS: Para salvar sua senha, você deve se cadastrar e logar no site, e aparecera uma opção
+                                    aqui para salvar a senha!</p>
+                            </b>
                         <?php endif; ?>
                         <br>
                         <input type="submit" class="btn btn-primary" value="Gerar senha">
                     </form>
 
 
-                    <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="categoriaLabel"
-                        aria-hidden="true">
+                    <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="categoriaLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Salvar senha</h5>
+                                    <h4 class="modal-title" id="exampleModalLabel">Salvar senha</h4>
                                 </div>
-                                <form method="POST" id="form3" action="/">
+                                <form method="POST" action="http://localhost/easy-password/public/">
                                     <div class="modal-body">
                                         <div class="form-group">
-                                            <label for="recipient-name" class="col-form-label">Selecione a
-                                                categoria</label><br>
-                                            <div class="form-check form-check-inline">
-                                                <?php foreach ($categorias as $categoria): ?>
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox1"
-                                                    value="<?php echo $categoria['categoria_id']; ?>">
-                                                <label class="form-check-label"
-                                                    for="inlineCheckbox1"><?php echo $categoria['nome_categoria']; ?>
-                                                    </label> &nbsp
-                                                <?php endforeach; ?>
-                                            </div>
+                                            <label for="recipient-name" class="col-form-label">Selecione as
+                                                categorias da senha</label><br>
 
-                                            <select class="form-control" id="selectCategoria">
-                                                <option value="0">Sem categoria</option>
-                                                <?php foreach ($categorias as $categoria): ?>
-                                                <option value="<?php echo $categoria['categoria_id']; ?>">
-                                                    <?php echo $categoria['nome_categoria']; ?></option>
-                                                <?php endforeach; ?>
-                                            </select>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="0" id="flexCheckDefault" name="categoria[]">
+                                                <label class="form-check-label" for="flexCheckDefault">
+                                                    <b> Sem categoria</b>
+                                                </label>
+                                            </div>
+                                            <?php $i=0;
+                                            foreach ($categorias as $categoria) : ?>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" value="<?php echo $categoria['categoria_id']; ?>" id="flexCheckDefault<?php echo $i;?>" name="categoria[]">
+                                                    <label class="form-check-label" for="flexCheckDefault<?php echo $i++;?>">
+                                                        <?php echo $categoria['nome_categoria']; ?>
+                                                    </label>
+                                                </div>
+                                            <?php endforeach; ?>
+
                                             <br>
                                             <label for="recipient-name" class="col-form-label">Senha a ser salva (altere
                                                 se quiser)</label>
                                             <input type="text" class="form-control" id="senhaSalvar" value="">
 
-
-
-                                            <div class="form-check form-check-inline">
-                                                <input class="form-check-input" type="checkbox" id="inlineCheckbox2"
-                                                    value="option2">
-                                                <label class="form-check-label" for="inlineCheckbox2">2</label>
-                                            </div>
                                         </div>
                                     </div>
 
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" id="fechar"
-                                            data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="btn btn-primary" id="enviar" value="Salvar">
+                                        <button type="button" class="btn btn-danger" id="fechar" data-dismiss="modal">Fechar</button>
+                                        <input type="submit" class="btn btn-primary" id="salvarSenha" value="Salvar">
                                     </div>
                                 </form>
 
