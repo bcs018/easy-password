@@ -20,7 +20,6 @@ class PainelController extends Controller {
     }
 
     public function dadosCadastrais(){
-
         $this->render('painel/dadCadastral');
     }
 
@@ -30,6 +29,14 @@ class PainelController extends Controller {
                                         toastr.error('Nome da categoria em branco!');
                                     </script>";
 
+            header("Location: ". BASE_URI."/painel");
+            exit;
+        }
+
+        if($this->verHash($_POST['hash'])){
+            $_SESSION['message'] = "<script>
+                                        toastr.error('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
+                                    </script>";
             header("Location: ". BASE_URI."/painel");
             exit;
         }
@@ -114,7 +121,11 @@ class PainelController extends Controller {
         exit;
     }
 
-    public function listarSenhas(){
-         
+    private function verHash($hash){
+        if($hash != $_SESSION['hash']) {
+            return true;
+        }
+
+        return false;
     }
 } 

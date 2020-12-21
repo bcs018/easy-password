@@ -1,4 +1,10 @@
-<?php $render('header', ['title'=>'easy password - Cadastre-se']); ?>
+<?php $render('header', ['title'=>'easy password - Cadastre-se']); ?> 
+
+<?php 
+	if(!isset($_SESSION['hash'])){
+		$_SESSION['hash'] = md5(time().rand(0,999));
+	}
+?>
 
 <main>
     <section>
@@ -36,6 +42,9 @@
                             </div>
                             
                         </div>
+                        <div>
+						    <input type="hidden" name="hash" id="hash" value="<?php echo $_SESSION['hash']; ?>">
+					    </div>
                         
                         <div id="errSenha"></div>
                         <input type="submit" id='cadastrar' class="btn btn-primary" value="Cadastrar">

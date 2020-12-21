@@ -24,6 +24,12 @@ class CadastroController extends Controller {
             exit;
         }
 
+        if($_POST['hash'] != $_SESSION['hash']){
+            //Erro 002 = Formulario enviado atraves de outro aplicativo
+            echo json_encode(['erro'=>'003']);
+            exit;
+        }
+
         $cadastro = new Cadastro();
        
         if($cadastro->inserir($_POST) == 1){
