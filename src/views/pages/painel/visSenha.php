@@ -43,7 +43,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                         echo "NÃO";
                                     endif; ?>
                                 </th>
-                                <th scope="row"> <a href="">Excluir</a> | <a href="">Editar</a> </th>
+                                <th scope="row"> <a href="<?php echo BASE_URI;?>/painel/excluir-senha/<?php echo $senha['senha_id'];?>/<?php echo $senha['categoria_id']; ?>">Excluir</a> | <a href="">Editar</a> </th>
                                 
                             </tr>
                             <?php endforeach; ?>

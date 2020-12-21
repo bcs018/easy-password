@@ -132,6 +132,24 @@ class PainelController extends Controller {
         exit;
     }
 
+    public function excluirSenha($id){
+        $painel = new Painel;
+
+        if($painel->excluirSen($id['id'], $id['cat'])){
+            $_SESSION['message'] = "<script> 
+                                        toastr.error('Está senha não pertence a esse usuário!');
+                                    </script>";          
+            header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+            exit;                       
+        }
+
+        $_SESSION['message'] = "<script> 
+                                    toastr.success('Senha excluido com sucesso!');
+                                </script>";          
+        header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+        exit;
+    }
+
     private function verHash($hash){
         if($hash != $_SESSION['hash']) {
             $_SESSION['message'] = "<script>

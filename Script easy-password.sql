@@ -35,6 +35,7 @@ create table categoria(
 );
 
 create table cat_sen(
+    cat_sen_id int not null auto_increment primary key,
 	categoria_id int not null,
     senha_id int not null,
     

@@ -75,7 +75,7 @@ class Painel extends Model {
     }
 
     public function listSenhas(){
-        $sql = "SELECT s.senha_usu, c.nome_categoria, s.alterado FROM senha s
+        $sql = "SELECT s.senha_usu, c.nome_categoria, c.categoria_id, s.alterado, s.senha_id FROM senha s
                 JOIN usuario u 
                 ON u.usuario_id = s.usuario_id 
                 JOIN cat_sen cs 
@@ -90,4 +90,60 @@ class Painel extends Model {
 
         return $sql->fetchAll();
     }
+
+    public function excluirSen($id=0, $cat=0){
+
+        //Verificar se a senha pertence ao usuario logado
+        $sql = "SELECT cs.cat_sen_id FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ? AND s.senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->bindValue(2, $id);
+        $sql->execute();
+
+        if($sql->rowCount() < 1){
+           return true; 
+        }
+        
+        //Verificando se existe a mesma senha para mais de uma categoria
+        //Excluir somente o registro da senha e categoria da tabela cat_sen para para desvincular a senha a categoria
+        if($sql->rowCount() > 1){
+            //$senha = $sql->fetchAll();
+            $sql = "DELETE FROM cat_sen WHERE cat_sen_id = (SELECT cs.cat_sen_id FROM senha s
+                                                            JOIN usuario u 
+                                                            ON u.usuario_id = s.usuario_id 
+                                                            JOIN cat_sen cs 
+                                                            ON cs.senha_id = s.senha_id 
+                                                            JOIN categoria c 
+                                                            ON c.categoria_id = cs.categoria_id
+                                                            WHERE u.usuario_id = ? AND s.senha_id = ? AND c.categoria_id = ?)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $_SESSION['log']['id']);
+            $sql->bindValue(2, $id);
+            $sql->bindValue(3, $cat);
+            $sql->execute();
+
+            return false;
+        }else{
+            //Senão deleta a senha e o cat_sen do banco
+            $sql = "DELETE FROM cat_sen WHERE senha_id = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $id);
+            $sql->execute();
+
+            $sql = "DELETE FROM senha WHERE senha_id = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $id);
+            $sql->execute();
+
+            return false;
+        }
+        
+   }
 }  

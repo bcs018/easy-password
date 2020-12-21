@@ -21,6 +21,8 @@ $router->post('/inserir-categoria', 'PainelController@inserirCat');
 $router->get('/excluir-categoria/{id}', 'PainelController@excluirCat');
 $router->post('/consultar-categoria/{id}', 'PainelController@consultarItemCat');
 $router->post('/editar-categoria/{id}', 'PainelController@editarCat');
+$router->get('/painel/excluir-senha/{id}/{cat}', 'PainelController@excluirSenha');
+
 
 $router->post('/salvar-senha', 'SenhaController@salvarSenha');
 
