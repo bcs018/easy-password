@@ -3,6 +3,11 @@ if (!isset($_SESSION['log'])) {
     $_SESSION['errorLog'] = '<script> toastr.error("Usuário não logado!"); </script>';
     header('Location: ' . BASE_URI);
 }
+
+if(!isset($_SESSION['hash'])){
+	$_SESSION['hash'] = md5(time().rand(0,999));
+}
+
 $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
 
 <section id="main-content">
@@ -18,6 +23,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                         <div class="col-sm-10">
                             <input type="text" id="nickCad" name="nick" value="<?php echo $_SESSION['log']['nick']; ?>" class="form-control">
                             <input type="hidden" id="nickId" value="<?php echo $_SESSION['log']['id']; ?> ">
+                            <input type="hidden" name="hash" value="<?php echo $_SESSION['hash']; ?>">
                             <br>
                             <button class="btn btn-primary" id="altNick">Alterar</button>
                         </div>

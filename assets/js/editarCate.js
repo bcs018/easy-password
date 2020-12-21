@@ -7,9 +7,16 @@ $('#enviar').on('click', function(){
     $.ajax({
         url: '/easy-password/public/editar-categoria/'+$('#catid').val(),
         type: 'POST',
-        data: {nome : $('#nomeCate').val()},
+        data: {
+            nome: $('#nomeCate').val(),
+            hash: $('[name=hash2]').val()
+        },
         dataType: 'json',
         success:function(json){
+            if(json.error = '001'){
+                toastr.error('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
+                return;
+            }
             $('#nomeCate').val($('#nomeCate').val());
             toastr.success('Alteração feita com sucesso!');
             return;

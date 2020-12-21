@@ -2,13 +2,20 @@ $('#altNick').on('click', function(){
     $.ajax({
         url: '/easy-password/public/painel/alterar-nick/' + $('#nickId').val(),
         type: 'POST',
-        data: { nick: $('#nickCad').val() },
+        data: { 
+            nick: $('#nickCad').val(),
+            hash:  $('[name=hash]').val()
+        },
         dataType: 'json',
         success:function(json){
-            toastr.success("Alteração feita com sucesso!");
-            setTimeout(function(){ window.location.reload() }, 1500);
-
-            return;
+            if(json.error != '001'){
+                toastr.success("Alteração feita com sucesso!");
+                setTimeout(function(){ window.location.reload() }, 1500);
+                return;
+            }
+            window.location.reload();
+            return
+           
         }
     })
 })
@@ -19,7 +26,8 @@ $('#altSen').on('click', function(){
         type: 'POST',
         data: { 
             senha: $('#senhaCad').val(),
-            senhaRep: $('#senhaCadRep').val()
+            senhaRep: $('#senhaCadRep').val(),
+            hash: $('[name=hash]').val()
          },
         dataType: 'json',
         success:function(json){
@@ -29,6 +37,10 @@ $('#altSen').on('click', function(){
             }
             if(json.error == '002'){
                 toastr.error('Senhas não batem, informe a mesma senha nos campos "Nova senha" e "Repita a nova senha"!');
+                return;
+            }
+            if(json.error == '003'){
+                window.location.reload();
                 return;
             }
             toastr.success("Alteração feita com sucesso!");

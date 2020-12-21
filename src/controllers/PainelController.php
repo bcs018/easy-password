@@ -34,9 +34,6 @@ class PainelController extends Controller {
         }
 
         if($this->verHash($_POST['hash'])){
-            $_SESSION['message'] = "<script>
-                                        toastr.error('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
-                                    </script>";
             header("Location: ". BASE_URI."/painel");
             exit;
         }
@@ -85,6 +82,11 @@ class PainelController extends Controller {
     }
 
     public function editarCat($id){
+        if($this->verHash($_POST['hash'])){
+            echo json_encode(['error'=>'001']);
+            exit;
+        }
+
         $painel = new Painel;
         $painel->editarCate($id['id'], $_POST['nome']);
 
@@ -93,6 +95,11 @@ class PainelController extends Controller {
     }
 
     public function editarNick($id){
+        if($this->verHash($_POST['hash'])){
+            echo json_encode(['error'=>'001']);
+            exit;
+        }
+
         $painel = new Painel;
         $painel->editNick(addslashes($_POST['nick']), $id['id']);
         $_SESSION['log']['nick'] = addslashes($_POST['nick']);
@@ -100,8 +107,12 @@ class PainelController extends Controller {
         exit;
     }
 
-    /* Colocar regra: Senha deve conter mais que 6 carac */
     public function editarSenha($id){
+        if($this->verHash($_POST['hash'])){
+            echo json_encode(['error'=>'003']);
+            exit;
+        }
+        
         $painel = new Painel;
 
         if(strlen($_POST['senha']) < 6){
@@ -123,6 +134,9 @@ class PainelController extends Controller {
 
     private function verHash($hash){
         if($hash != $_SESSION['hash']) {
+            $_SESSION['message'] = "<script>
+                                        toastr.error('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
+                                    </script>";
             return true;
         }
 

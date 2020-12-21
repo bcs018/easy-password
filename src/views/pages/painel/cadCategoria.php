@@ -88,6 +88,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                         <label for="recipient-name" class="col-form-label">Nome categoria</label>
                                         <input type="text" class="form-control" id="nomeCate" autofocus>
                                         <input type="hidden" value="" id="catid">
+                                        <input type="hidden" name="hash2" value="<?php echo $_SESSION['hash']; ?>">
                                     </div>
                                 </div>
                                 <div class="modal-footer">
