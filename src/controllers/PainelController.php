@@ -161,7 +161,24 @@ class PainelController extends Controller {
         return false;
     }
 
-    public function consultarItemSen(){
-        
+    public function consultarItemSen($id){
+        $painel = new Painel();
+
+        $dados = $painel->consultarIteSen($id['idsen'], $id['idcat']);
+        //echo "<pre>";
+        //print_r($dados);
+        //echo "</pre>";exit;
+        if($dados){
+            $_SESSION['message'] = "<script> 
+                                        toastr.error('Está senha não pertence a esse usuário!');
+                                    </script>";          
+            header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+            exit;
+        }
+
+        echo json_encode($dados);
+        exit;
+
+
     }
 } 

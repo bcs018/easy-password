@@ -44,7 +44,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                     endif; ?>
                                 </th>
                                 <th scope="row"> <a href="<?php echo BASE_URI;?>/painel/excluir-senha/<?php echo $senha['senha_id'];?>/<?php echo $senha['categoria_id']; ?>">Excluir</a> | 
-                                <a data-toggle="modal" data-target="#exampleModal" href="" onclick="consultarItemSenha(<?php echo $senha['senha_id']; ?>)">Editar</a> </th>
+                                <a data-toggle="modal" data-target="#senha" href="" onclick="consultarItemSenha(<?php echo $senha['senha_id'].','.$senha['categoria_id']; ?>)">Editar</a> </th>
                                 
                             </tr>
                             <?php endforeach; ?>
@@ -63,7 +63,6 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                     <div class="form-group">
                                         <label for="recipient-name" class="col-form-label">Editar senha</label>
                                         <input type="text" class="form-control" id="nomeCate" value="" autofocus>
-                                        <input type="hidden" value="" id="catid">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

@@ -20,7 +20,7 @@ $router->post('/painel/alterar-senha/{id}', 'PainelController@editarSenha');
 $router->post('/inserir-categoria', 'PainelController@inserirCat');
 $router->get('/excluir-categoria/{id}', 'PainelController@excluirCat');
 $router->post('/consultar-categoria/{id}', 'PainelController@consultarItemCat');
-$router->post('/consultar-senha/{id}', 'PainelController@consultarItemSen');
+$router->post('/consultar-senha/{idsen}/{idcat}', 'PainelController@consultarItemSen');
 $router->post('/editar-categoria/{id}', 'PainelController@editarCat');
 $router->get('/painel/excluir-senha/{id}/{cat}', 'PainelController@excluirSenha');
 
