@@ -160,4 +160,8 @@ class PainelController extends Controller {
 
         return false;
     }
+
+    public function consultarItemSen(){
+        
+    }
 } 

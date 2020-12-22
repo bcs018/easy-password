@@ -52,6 +52,7 @@
 <script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
 <script src="http://localhost/easy-password/assets/pnl/js/main.js"></script>
 <script src="http://localhost/easy-password/assets/js/editarCate.js"></script>
+<script src="http://localhost/easy-password/assets/js/editarSen.js"></script>
 <script src="http://localhost/easy-password/assets/js/altDadosCadastral.js"></script>
 
 <!--common script for all pages-->

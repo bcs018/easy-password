@@ -43,7 +43,8 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                         echo "NÃO";
                                     endif; ?>
                                 </th>
-                                <th scope="row"> <a href="<?php echo BASE_URI;?>/painel/excluir-senha/<?php echo $senha['senha_id'];?>/<?php echo $senha['categoria_id']; ?>">Excluir</a> | <a href="">Editar</a> </th>
+                                <th scope="row"> <a href="<?php echo BASE_URI;?>/painel/excluir-senha/<?php echo $senha['senha_id'];?>/<?php echo $senha['categoria_id']; ?>">Excluir</a> | 
+                                <a data-toggle="modal" data-target="#exampleModal" href="" onclick="consultarItemSenha(<?php echo $senha['senha_id']; ?>)">Editar</a> </th>
                                 
                             </tr>
                             <?php endforeach; ?>
@@ -51,17 +52,17 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                         </tbody>
                     </table>
 
-                    <div class="modal fade" id="categoria" tabindex="-1" role="dialog" aria-labelledby="categoriaLabel"
+                    <div class="modal fade" id="senha" tabindex="-1" role="dialog" aria-labelledby="senhaLabel"
                         aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar categoria</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Editar senha</h5>
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Nome categoria</label>
-                                        <input type="text" class="form-control" id="nomeCate" autofocus>
+                                        <label for="recipient-name" class="col-form-label">Editar senha</label>
+                                        <input type="text" class="form-control" id="nomeCate" value="" autofocus>
                                         <input type="hidden" value="" id="catid">
                                     </div>
                                 </div>

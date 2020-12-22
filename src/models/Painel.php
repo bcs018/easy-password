@@ -114,7 +114,6 @@ class Painel extends Model {
         //Verificando se existe a mesma senha para mais de uma categoria
         //Excluir somente o registro da senha e categoria da tabela cat_sen para para desvincular a senha a categoria
         if($sql->rowCount() > 1){
-            //$senha = $sql->fetchAll();
             $sql = "DELETE FROM cat_sen WHERE cat_sen_id = (SELECT cs.cat_sen_id FROM senha s
                                                             JOIN usuario u 
                                                             ON u.usuario_id = s.usuario_id 
