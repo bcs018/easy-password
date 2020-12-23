@@ -160,8 +160,8 @@ class Painel extends Model {
         $sql->bindValue(2, $idsen);
         $sql->execute();
 
-        if($sql->rowCount() < 1){
-            return true; 
+        if($sql->rowCount() == 0){
+            return 1; 
         }
 
         $sql = "SELECT s.senha_id, s.senha_usu, c.categoria_id, c.nome_categoria, c.usuario_id FROM senha s 
@@ -174,8 +174,15 @@ class Painel extends Model {
         $sql->bindValue(1, $idcat);
         $sql->bindValue(2, $idsen);
         $sql->execute();
-            
-        return $sql->fetch();
+        
+        $categorias = $this->listaCate();
+
+        $dados = [
+            'categ_senha'=>$sql->fetch(),
+            'categorias' =>$categorias
+        ];
+        
+        return $dados;
 
 }
 }  

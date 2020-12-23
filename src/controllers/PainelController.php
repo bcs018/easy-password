@@ -165,18 +165,22 @@ class PainelController extends Controller {
         $painel = new Painel();
 
         $dados = $painel->consultarIteSen($id['idsen'], $id['idcat']);
-        //echo "<pre>";
-        //print_r($dados);
-        //echo "</pre>";exit;
-        if($dados){
+        echo "<pre>";
+        print_r($dados);
+        echo "</pre>";exit;
+        if($dados == 1){
             $_SESSION['message'] = "<script> 
                                         toastr.error('Está senha não pertence a esse usuário!');
-                                    </script>";          
+                                    </script>";
             header("Location: ".BASE_URI."/painel/visualizar-senha"); 
             exit;
         }
 
-        echo json_encode($dados);
+        $senha = [
+            'nome_categoria' => $dados['nome_categoria']
+        ];
+
+        echo json_encode($senha);
         exit;
 
 

@@ -24,9 +24,9 @@ $('#enviar').on('click', function(){
     });
 });
 
-$('#fechar').on('click', function(){
-    window.location.reload();
-})
+//$('#fechar').on('click', function(){
+//    window.location.reload();
+//})
 
 function consultarItem(id){
     $.ajax({

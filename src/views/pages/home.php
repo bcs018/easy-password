@@ -75,7 +75,6 @@
                         <input type="submit" class="btn btn-primary" value="Gerar senha">
                     </form>
 
-                    <!-- COLOCAR REGRA PARA NAO CADASTRAR SEM CATEGORIA MARCADO!!!! -->
                     <div class="modal fade" id="save" tabindex="-1" role="dialog" aria-labelledby="categoriaLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">

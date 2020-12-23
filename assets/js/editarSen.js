@@ -1,4 +1,6 @@
-
+$('#fechar').on('click', function(){
+    window.location.reload();
+})
 
 function consultarItemSenha(idsen, idcat){
     $.ajax({
@@ -6,8 +8,7 @@ function consultarItemSenha(idsen, idcat){
         type: 'POST',
         dataType: 'json',
         success:function(json){
-            console.log(json.nome_categoria);
-            //$('#nomeCate').val(json.nome_categoria);
+            $('#nomeCate').val(json.nome_categoria);
             $('#senha').modal({backdrop: 'static', keyboard: false},'show');    
         }
     });
