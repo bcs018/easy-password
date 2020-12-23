@@ -8,7 +8,10 @@ function consultarItemSenha(idsen, idcat){
         type: 'POST',
         dataType: 'json',
         success:function(json){
-            $('#nomeCate').val(json.nome_categoria);
+            var valores = $("input[value="+ json.categoria_id +"]").prop("checked", true);
+            
+            console.log(valores);
+            $('#nomeCate').val(json.senha_usu);
             $('#senha').modal({backdrop: 'static', keyboard: false},'show');    
         }
     });

@@ -35,8 +35,16 @@ class CategoriaController extends Controller {
     }
 
     public function excluir($id){ 
+        if($id['id'] == 1){
+            $_SESSION['message'] = '<script> 
+                                        toastr.error("Não pode excluir essa categoria!"); 
+                                    </script>';
+            header("Location: ". BASE_URI."/painel");
+            exit;
+        }
+
         $cat = new Categoria;
-        
+
         if($cat->excluirCate($id['id'])){
             $_SESSION['message'] = '<script> 
                                         toastr.error("Não pode excluir a categoria pois tem uma senha vinculada a ela!"); 
@@ -54,6 +62,12 @@ class CategoriaController extends Controller {
     }
     
     public function consultar($id){
+        if($id['id'] == 1){
+            //Erro 001 = Não pode excluir a categoria 1 - Sem categoria
+            echo json_encode(['error'=>'001']);
+            exit;
+        }
+
         $cat = new Categoria;
         $dados = $cat->consultarCate($id['id']);
 

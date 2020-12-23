@@ -34,6 +34,10 @@ function consultarItem(id){
         type: 'POST',
         dataType: 'json',
         success:function(json){
+            if(json.error == '001'){
+                toastr.error('Não pode editar essa categoria!');
+                return;
+            }
             $('#nomeCate').val( json.nomeCategoria);
             $('#catid').val(json.id);
             $('#categoria').modal({backdrop: 'static', keyboard: false},'show');    

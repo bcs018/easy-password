@@ -169,7 +169,6 @@ class Senha extends Model {
     }
 
     public function excluirSen($id=0, $cat=0){
-
         //Verificar se a senha pertence ao usuario logado
         $sql = "SELECT cs.cat_sen_id FROM senha s
                 JOIN usuario u 
@@ -252,15 +251,7 @@ class Senha extends Model {
         $sql->bindValue(2, $idsen);
         $sql->execute();
         
-        //Lista categorias -- Pegar do Categorias
-        $categorias = $this->listaCate();
-
-        $dados = [
-            'categ_senha'=>$sql->fetch(),
-            'categorias' =>$categorias
-        ];
-        
-        return $dados;
+        return $sql->fetch();
     }   
     
 }

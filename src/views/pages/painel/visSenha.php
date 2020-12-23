@@ -43,9 +43,13 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                         echo "NÃO";
                                     endif; ?>
                                 </th>
-                                <th scope="row"> <a href="<?php echo BASE_URI;?>/painel/excluir-senha/<?php echo $senha['senha_id'];?>/<?php echo $senha['categoria_id']; ?>">Excluir</a> | 
-                                <a data-toggle="modal" data-target="#a" href="" onclick="consultarItemSenha(<?php echo $senha['senha_id'].','.$senha['categoria_id']; ?>)">Editar</a> </th>
-                                
+                                <th scope="row"> <a
+                                        href="<?php echo BASE_URI;?>/painel/excluir-senha/<?php echo $senha['senha_id'];?>/<?php echo $senha['categoria_id']; ?>">Excluir</a>
+                                    |
+                                    <a data-toggle="modal" data-target="#a" href=""
+                                        onclick="consultarItemSenha(<?php echo $senha['senha_id'].','.$senha['categoria_id']; ?>)">Editar</a>
+                                </th>
+
                             </tr>
                             <?php endforeach; ?>
                             <?php endif; ?>
@@ -57,13 +61,35 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Editar senha</h5>
+                                    <h5 class="modal-title" id="exampleModalLabel">Editar senha e categoria</h5>
                                 </div>
                                 <div class="modal-body">
                                     <div class="form-group">
-                                        <label for="recipient-name" class="col-form-label">Editar senha</label>
+                                        <label for="recipient-name" class="col-form-label">Nova senha</label>
                                         <input type="text" class="form-control" id="nomeCate" value="" autofocus>
                                     </div>
+                                    <br>
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Selecione as categorias da senha</label>
+                                        <br>
+
+                                        <?php 
+                                            $i=0;
+                                            foreach ($categorias as $categoria) : ?>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox"
+                                                        value="<?php echo $categoria['categoria_id']; ?>"
+                                                        id="flexCheckDefault<?php echo $i;?>" name="categoria[]" <?php echo($categoria['categoria_id'] == '' ? "checked" : ""); ?> >
+                                                    <label class="form-check-label" for="flexCheckDefault<?php echo $i++;?>">
+                                                        <?php echo $categoria['nome_categoria']; ?>
+                                                    </label>
+                                                    <input type="hidden" >
+                                                </div>
+                                        <?php endforeach; ?>
+
+                                        <br>
+                                    </div>
+
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-danger" id="fechar"
@@ -82,20 +108,23 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
 
 <section id="main-content">
     <section class="wrapper">
-    <center> 
-        <h1>
-            <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp Aviso&nbsp <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
-        </h1>
-    </center>
+        <center>
+            <h1>
+                <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp Aviso&nbsp <i
+                    class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+            </h1>
+        </center>
         <div class="row mt">
             <div class="col-lg-12">
                 <div class="form-panel">
-                    <h6> 
-                        <strong>1.</strong> Jamais, em hipótese alguma compartilhe essa tela com alguem, apesar de não conter dados usuais onde podem
+                    <h6>
+                        <strong>1.</strong> Jamais, em hipótese alguma compartilhe essa tela com alguem, apesar de não
+                        conter dados usuais onde podem
                         ser acessado contas de redes sociais, é de suma importância a proteção desses dados.
                     </h6>
                     <h6>
-                        <strong>2.</strong> Sempre que for sair do site <u style="color: #ed3f05;"><strong>LEMBRE-SE DE SAIR DA SUA CONTA</strong></u> para que ninguem acesse seu painel 
+                        <strong>2.</strong> Sempre que for sair do site <u style="color: #ed3f05;"><strong>LEMBRE-SE DE
+                                SAIR DA SUA CONTA</strong></u> para que ninguem acesse seu painel
                         de controle por esse computador.
                     </h6>
                 </div>

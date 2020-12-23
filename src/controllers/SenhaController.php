@@ -57,11 +57,7 @@ class SenhaController extends Controller {
             exit;
         }
 
-        $senha = [
-            'nome_categoria' => $dados['nome_categoria']
-        ];
-
-        echo json_encode($senha);
+        echo json_encode($dados);
         exit;
 
 
