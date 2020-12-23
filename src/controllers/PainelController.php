@@ -27,5 +27,4 @@ class PainelController extends Controller {
 
     /*------------------------------------------------*/
 
-   
 } 
