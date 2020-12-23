@@ -37,4 +37,20 @@ class Cadastro extends Model {
         return 0;
     }
 
+    public function editNick($nick, $id){
+        $sql = "UPDATE usuario SET nickname = ? WHERE usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $nick);
+        $sql->bindValue(2, $id);
+        $sql->execute();
+    }
+
+    public function editSenha($senha, $id){
+        $sql = "UPDATE usuario SET senha = ? WHERE usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, md5($senha));
+        $sql->bindValue(2, $id);
+        $sql->execute();
+    }
+
 }

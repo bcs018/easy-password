@@ -5,7 +5,7 @@ $('#enviar').on('click', function(){
     }
 
     $.ajax({
-        url: '/easy-password/public/editar-categoria/'+$('#catid').val(),
+        url: '/easy-password/public/painel/editar-categoria/'+$('#catid').val(),
         type: 'POST',
         data: {
             nome: $('#nomeCate').val(),
@@ -13,7 +13,7 @@ $('#enviar').on('click', function(){
         },
         dataType: 'json',
         success:function(json){
-            if(json.error = '001'){
+            if(json.error == '001'){
                 toastr.error('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
                 return;
             }
@@ -24,13 +24,13 @@ $('#enviar').on('click', function(){
     });
 });
 
-//$('#fechar').on('click', function(){
-//    window.location.reload();
-//})
+$('#fechar').on('click', function(){
+    window.location.reload();
+})
 
 function consultarItem(id){
     $.ajax({
-        url: '/easy-password/public/consultar-categoria/'+id,
+        url: '/easy-password/public/painel/consultar-categoria/'+id,
         type: 'POST',
         dataType: 'json',
         success:function(json){
