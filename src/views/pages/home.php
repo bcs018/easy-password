@@ -81,7 +81,7 @@
                                 <div class="modal-header">
                                     <h4 class="modal-title" id="exampleModalLabel">Salvar senha</h4>
                                 </div>
-                                <form method="POST" action="/easy-password/public/salvar-senha">
+                                <form method="POST" action="<?php echo BASE_URI; ?>/salvar-senha">
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Selecione as

@@ -59,8 +59,10 @@ class SenhaController extends Controller {
 
         echo json_encode($dados);
         exit;
+    }
 
-
+    public function editar(){
+        
     }
 
 } 

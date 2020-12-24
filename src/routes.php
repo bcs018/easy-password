@@ -34,6 +34,7 @@ $router->get('/cadastre-se', 'CadastroController@index');
 $router->post('/painel/consultar-senha/{idsen}/{idcat}', 'SenhaController@consultar');
 $router->post('/salvar-senha', 'SenhaController@inserir');
 $router->get('/painel/excluir-senha/{id}/{cat}', 'SenhaController@excluir');
+$router->post('/painel/editar-senha', 'SenhaController@editar');
 
 
 
