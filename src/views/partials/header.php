@@ -35,8 +35,12 @@
                                 <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/login">Login</a>
                             <?php else: ?>
                                 <a class="nav-link" id="menu" href="<?php echo BASE_URI; ?>/painel">Painel</a>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="menu" style="color:#ff3700;" href="<?php echo BASE_URI; ?>/sair">Sair</a>
+                                </li>
                             <?php endif; ?>
                         </li>
+                       
                     </ul>
                 </div>
             </nav>
