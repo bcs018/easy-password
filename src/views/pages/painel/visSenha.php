@@ -39,7 +39,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                             else :
                                 foreach ($senhas as $senha) : ?>
                                     <tr>
-                                        <th scope="row"><?php echo addslashes($senha['senha_usu']); ?></th>
+                                        <th scope="row"><?php echo  $senha['senha_usu']; ?></th>
                                         <th scope="row"><?php echo $senha['nome_categoria']; ?></th>
                                         <th scope="row">
                                             <?php if ($senha['alterado'] == 1) :

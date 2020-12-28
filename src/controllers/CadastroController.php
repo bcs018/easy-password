@@ -25,7 +25,7 @@ class CadastroController extends Controller {
         }
 
         if($_POST['hash'] != $_SESSION['hash']){
-            //Erro 002 = Formulario enviado atraves de outro aplicativo
+            //Erro 003 = Formulario enviado atraves de outro aplicativo
             echo json_encode(['erro'=>'003']);
             exit;
         }
@@ -43,7 +43,7 @@ class CadastroController extends Controller {
         exit;
     }
 
-    public function editarNick($id){
+    public function editarNick(){
         if($this->verHash($_POST['hash'])){
             echo json_encode(['error'=>'001']);
             exit;
@@ -52,14 +52,14 @@ class CadastroController extends Controller {
         $nick = htmlspecialchars(addslashes($_POST['nick']));
 
         $cadastro = new Cadastro;
-        $cadastro->editNick($nick, $id['id']);
+        $cadastro->editNick($nick, $_SESSION['log']['id']);
         
         $_SESSION['log']['nick'] = addslashes($_POST['nick']);
         echo json_encode(true);
         exit;
     }
 
-    public function editarSenha($id){
+    public function editarSenha(){
         if($this->verHash($_POST['hash'])){
             echo json_encode(['error'=>'003']);
             exit;
@@ -79,7 +79,7 @@ class CadastroController extends Controller {
             exit;
         }
 
-        $cadastro->editSenha(addslashes($_POST['senha']), $id['id']);
+        $cadastro->editSenha(addslashes($_POST['senha']), $_SESSION['log']['id']);
         echo json_encode(true);
         exit;
     }

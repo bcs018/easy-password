@@ -14,6 +14,11 @@ $('#enviar').on('click', function(){
         dataType: 'json',
         success:function(json){
             if(json.error == '001'){
+                toastr.error('Houve um erro no envio, informe o erro 001 para o admin do sistema ou tente novamente recarregando a pagina!');
+                return;
+            }
+
+            if(json.error == '002'){
                 toastr.error('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
                 return;
             }

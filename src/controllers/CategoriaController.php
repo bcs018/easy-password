@@ -45,9 +45,17 @@ class CategoriaController extends Controller {
 
         $cat = new Categoria;
 
-        if($cat->excluirCate($id['id'])){
+        $dados = $cat->excluirCate($id['id']);
+
+        if($dados == 1){
             $_SESSION['message'] = '<script> 
                                         toastr.error("Não pode excluir a categoria pois tem uma senha vinculada a ela!"); 
+                                    </script>';
+            header("Location: ". BASE_URI."/painel");
+            exit;
+        }elseif($dados == 2){
+            $_SESSION['message'] = '<script> 
+                                        toastr.error("Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!"); 
                                     </script>';
             header("Location: ". BASE_URI."/painel");
             exit;
@@ -89,7 +97,11 @@ class CategoriaController extends Controller {
         }
 
         $cat = new Categoria;
-        $cat->editarCate($id['id'], $_POST['nome']);
+        //Caso não tenha feito o update
+        if($cat->editarCate($id['id'], $_POST['nome']) == 2){
+            echo json_encode(['error'=>'002']);
+            exit;
+        }
 
         echo json_encode(true);
         exit;

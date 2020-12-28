@@ -18,10 +18,22 @@ function consultarItemSenha(idsen, idcat){
         success:function(json){
             $("input[value="+ json.categoria_id +"]").prop("checked", true);
             
-            $('#senhaN').val(json.senha_usu);
+            $('#senhaN').val( decodeHtml(json.senha_usu) );
             $('#senid').val(idsen);
             $('#catid').val(idcat);
             $('#senha').modal({backdrop: 'static', keyboard: false},'show');    
         }
     });
+}
+
+function decodeHtml(str){
+    var map =
+    {
+        '&amp;': '&',
+        '&lt;': '<',
+        '&gt;': '>',
+        '&quot;': '"',
+        '&#039;': "'"
+    };
+    return str.replace(/&amp;|&lt;|&gt;|&quot;|&#039;/g, function(m) {return map[m];});
 }

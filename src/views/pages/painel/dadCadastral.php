@@ -22,7 +22,6 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                         <label class="form-label">Alterar ou adicionar nickname (apelido)</label>
                         <div class="col-sm-10">
                             <input type="text" id="nickCad" name="nick" value="<?php echo $_SESSION['log']['nick']; ?>" class="form-control">
-                            <input type="hidden" id="nickId" value="<?php echo $_SESSION['log']['id']; ?> ">
                             <input type="hidden" name="hash" value="<?php echo $_SESSION['hash']; ?>">
                             <br>
                             <button class="btn btn-primary" id="altNick">Alterar</button>
@@ -34,7 +33,6 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                         <label class="form-label">Nova senha</label>
                         <div class="col-sm-10">
                             <input type="password" id="senhaCad" name="senha" placeholder="Insira a nova senha" class="form-control">
-                            <input type="hidden" id="senhaId" value="<?php echo $_SESSION['log']['id']; ?> ">
                         </div>
                         <br>
                         <label class="form-label">Repita a nova senha</label>

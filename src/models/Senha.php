@@ -177,10 +177,11 @@ class Senha extends Model {
                 ON cs.senha_id = s.senha_id 
                 JOIN categoria c 
                 ON c.categoria_id = cs.categoria_id
-                WHERE u.usuario_id = ? AND s.senha_id = ?";
+                WHERE u.usuario_id = ? AND cs.senha_id = ? AND cs.categoria_id = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $_SESSION['log']['id']);
         $sql->bindValue(2, $id);
+        $sql->bindValue(3, $cat);
         $sql->execute();
 
         if($sql->rowCount() < 1){
@@ -188,6 +189,19 @@ class Senha extends Model {
         }
         
         //Verificando se existe a mesma senha para mais de uma categoria
+        $sql = "SELECT cs.cat_sen_id FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ? AND s.senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->bindValue(2, $id);
+        $sql->execute();
+        
         //Excluir somente o registro da senha e categoria da tabela cat_sen para para desvincular a senha a categoria
         if($sql->rowCount() > 1){
             $sql = "DELETE FROM cat_sen WHERE cat_sen_id = (SELECT cs.cat_sen_id FROM senha s
@@ -230,10 +244,11 @@ class Senha extends Model {
                 ON cs.senha_id = s.senha_id 
                 JOIN categoria c 
                 ON c.categoria_id = cs.categoria_id
-                WHERE u.usuario_id = ? AND s.senha_id = ?";
+                WHERE u.usuario_id = ? AND cs.senha_id = ? AND cs.categoria_id = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $_SESSION['log']['id']);
         $sql->bindValue(2, $idsen);
+        $sql->bindValue(3, $idcat);
         $sql->execute();
 
         if($sql->rowCount() == 0){
@@ -254,7 +269,6 @@ class Senha extends Model {
         return $sql->fetch();
     }   
     
-    // ************* FAZER TESTES PARA VALIDAR ESSE SELECT P/ VALIDAR A CATEGORIA DE OUTRO USUARIO *************
     public function editarSen($categorias, $senha, $idsen, $idcat){
         //Verificar se a senha pertence ao usuario logado
         $sql = "SELECT cs.cat_sen_id FROM senha s
@@ -264,10 +278,11 @@ class Senha extends Model {
                 ON cs.senha_id = s.senha_id 
                 JOIN categoria c 
                 ON c.categoria_id = cs.categoria_id
-                WHERE u.usuario_id = ? AND s.senha_id = ?";
+                WHERE u.usuario_id = ? AND cs.senha_id = ? AND cs.categoria_id = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $_SESSION['log']['id']);
         $sql->bindValue(2, $idsen);
+        $sql->bindValue(3, $idcat);
         $sql->execute();
 
         if($sql->rowCount() == 0){

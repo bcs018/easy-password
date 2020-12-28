@@ -25,8 +25,8 @@ $router->post('/painel/editar-categoria/{id}', 'CategoriaController@editar');
 
 /* Cadastro */
 $router->post('/cadastre-se/valida-login', 'CadastroController@validarLogin');
-$router->post('/painel/alterar-nick/{id}', 'CadastroController@editarNick');
-$router->post('/painel/alterar-senha/{id}', 'CadastroController@editarSenha');
+$router->post('/painel/alterar-nick', 'CadastroController@editarNick');
+$router->post('/painel/alterar-senha', 'CadastroController@editarSenha');
 $router->post('/cadastre-se/cadastrar', 'CadastroController@inserir');
 $router->get('/cadastre-se', 'CadastroController@index');
 
