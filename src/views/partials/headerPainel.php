@@ -34,7 +34,7 @@
 			<div id="sidebar" class="nav-collapse ">
 				<ul class="sidebar-menu" id="nav-accordion">
 
-					<h5 class="centered"><?php echo $_SESSION['log']['nick']; ?> &nbsp <i id="button" aria-describedby="tooltip" class="fa fa-info-circle" aria-hidden="true"></i></h5>
+					<h5 class="centered"><?php echo htmlspecialchars($_SESSION['log']['nick']); ?> &nbsp <i id="button" aria-describedby="tooltip" class="fa fa-info-circle" aria-hidden="true"></i></h5>
 					<p class="centered"><a id="color_a" href="<?php echo BASE_URI;?>/sair">Sair</a></p>
 					<div id="tooltip" role="tooltip">
 						Você pode mudar seu nome clicando no menu "Dados cadastrais"!	

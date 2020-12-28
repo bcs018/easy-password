@@ -39,7 +39,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                             else :
                                 foreach ($senhas as $senha) : ?>
                                     <tr>
-                                        <th scope="row"><?php echo $senha['senha_usu']; ?></th>
+                                        <th scope="row"><?php echo addslashes($senha['senha_usu']); ?></th>
                                         <th scope="row"><?php echo $senha['nome_categoria']; ?></th>
                                         <th scope="row">
                                             <?php if ($senha['alterado'] == 1) :
@@ -70,8 +70,10 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Nova senha</label>
-                                            <input type="text" class="form-control" id="senhaN" value="" autofocus>
-                                            <input type="hidden" id="hash3" value="<?php echo $_SESSION['hash']; ?>">
+                                            <input type="text" class="form-control" name="senhaN" id="senhaN" value="" autofocus>
+                                            <input type="hidden" name="hash3" value="<?php echo $_SESSION['hash']; ?>">
+                                            <input type="hidden" name="senid" id="senid" value="">
+                                            <input type="hidden" name="catid" id="catid" value="">
                                         </div>
                                         <br>
                                         <div class="form-group">
@@ -82,7 +84,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                             $i = 0;
                                             foreach ($categorias as $categoria) : ?>
                                                 <div class="form-check">
-                                                    <input class="form-check-input" type="checkbox" value="<?php echo $categoria['categoria_id']; ?>" id="flexCheckDefault<?php echo $i; ?>" name="categoria[]" <?php echo ($categoria['categoria_id'] == '' ? "checked" : ""); ?>>
+                                                    <input class="form-check-input" type="checkbox" value="<?php echo $categoria['categoria_id']; ?>" id="flexCheckDefault<?php echo $i; ?>" name="categoria[]">
                                                     <label class="form-check-label" for="flexCheckDefault<?php echo $i++; ?>">
                                                         <?php echo $categoria['nome_categoria']; ?>
                                                     </label>
@@ -96,7 +98,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-danger" id="fechar" data-dismiss="modal">Fechar</button>
-                                        <input type="submit" class="btn btn-primary" id="enviarS" value="Editar">
+                                        <input type="submit" class="btn btn-primary" name="enviarS" value="Editar">
                                     </div>
                                 </form>
 

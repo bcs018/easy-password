@@ -49,8 +49,11 @@ class CadastroController extends Controller {
             exit;
         }
 
+        $nick = htmlspecialchars(addslashes($_POST['nick']));
+
         $cadastro = new Cadastro;
-        $cadastro->editNick(addslashes($_POST['nick']), $id['id']);
+        $cadastro->editNick($nick, $id['id']);
+        
         $_SESSION['log']['nick'] = addslashes($_POST['nick']);
         echo json_encode(true);
         exit;

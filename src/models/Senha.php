@@ -254,4 +254,59 @@ class Senha extends Model {
         return $sql->fetch();
     }   
     
+    // ************* FAZER TESTES PARA VALIDAR ESSE SELECT P/ VALIDAR A CATEGORIA DE OUTRO USUARIO *************
+    public function editarSen($categorias, $senha, $idsen, $idcat){
+        //Verificar se a senha pertence ao usuario logado
+        $sql = "SELECT cs.cat_sen_id FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ? AND s.senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->bindValue(2, $idsen);
+        $sql->execute();
+
+        if($sql->rowCount() == 0){
+            return 1; 
+        }
+
+        //Alterando a senha
+        $sql = "UPDATE senha SET senha_usu = ?, alterado = ?
+                WHERE senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $senha);
+        $sql->bindValue(2, 1);
+        $sql->bindValue(3, $idsen);
+        $sql->execute();
+
+        //Deletando o registro que vincula a senha com a categoria p/ cadastrar tudo de novo de acordo com o que o usuario selecionou
+        $sql = "DELETE FROM cat_sen WHERE categoria_id = ? AND senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $idcat);
+        $sql->bindValue(2, $idsen);
+        $sql->execute();
+
+        //Inserindo as novas categorias selecionadas pelo usuario
+        if(empty($categorias)){
+            $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                    VALUES (?,?)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, 1);
+            $sql->bindValue(2, $idsen);
+            $sql->execute();
+        }else{
+            foreach($categorias as $categoria){
+                $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                        VALUES (?,?)";
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(1, $categoria);
+                $sql->bindValue(2, $idsen);
+                $sql->execute();
+            }
+        }
+    }
 }
