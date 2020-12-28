@@ -4,8 +4,10 @@ use \core\Environment;
 
 if(Environment::ENVIRONMENT == 'local'){
     define('BASE_URI', 'http://localhost/easy-password/public');
+    define('BASE_ASS', 'http://localhost/easy-password');
 }else{
     define('BASE_URI', '');
+    define('BASE_ASS', '');
 }
 
 class Config {

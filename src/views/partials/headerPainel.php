@@ -9,15 +9,15 @@
 
 	<title><?php echo $title; ?></title>
 
-	<link href="http://localhost/easy-password/assets/pnl/css/bootstrap.min.css" rel="stylesheet">
+	<link href="<?php echo BASE_ASS; ?>/assets/pnl/css/bootstrap.min.css" rel="stylesheet">
 
-	<link href="http://localhost/easy-password/assets/pnl/font-awesome/css/font-awesome.css" rel="stylesheet" />
-	<link rel="shortcut icon" href="http://localhost/easy-password/assets/img/icon.ico">
-	<link href="http://localhost/easy-password/assets/css/toastr.min.css" rel="stylesheet" />
+	<link href="<?php echo BASE_ASS; ?>/assets/pnl/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="<?php echo BASE_ASS; ?>/assets/img/icon.ico">
+	<link href="<?php echo BASE_ASS; ?>/assets/css/toastr.min.css" rel="stylesheet" />
 
 	<!-- Custom styles for this template -->
-	<link href="http://localhost/easy-password/assets/pnl/css/style.css" rel="stylesheet">
-	<link href="http://localhost/easy-password/assets/pnl/css/style-responsive.css" rel="stylesheet">
+	<link href="<?php echo BASE_ASS; ?>/assets/pnl/css/style.css" rel="stylesheet">
+	<link href="<?php echo BASE_ASS; ?>/assets/pnl/css/style-responsive.css" rel="stylesheet">
 </head>
 
 <body>

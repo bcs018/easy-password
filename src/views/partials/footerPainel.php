@@ -46,17 +46,17 @@
 </script>
 
 <!-- js placed at the end of the document so the pages load faster -->
-<script src="http://localhost/easy-password/assets/js/jquery.min.js"></script>
-<script src="http://localhost/easy-password/assets/js/bootstrap.bundle.min.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/js/jquery.min.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
-<script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
-<script src="http://localhost/easy-password/assets/pnl/js/main.js"></script>
-<script src="http://localhost/easy-password/assets/js/editarCate.js"></script>
-<script src="http://localhost/easy-password/assets/js/editarSen.js"></script>
-<script src="http://localhost/easy-password/assets/js/altDadosCadastral.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/js/toastr.min.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/pnl/js/main.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/js/editarCate.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/js/editarSen.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/js/altDadosCadastral.js"></script>
 
 <!--common script for all pages-->
-<script src="http://localhost/easy-password/assets/pnl/js/common-scripts.js"></script>
+<script src="<?php echo BASE_ASS; ?>/assets/pnl/js/common-scripts.js"></script>
 
 <?php
 if (isset($_SESSION['message'])) {
