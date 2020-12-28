@@ -21,7 +21,17 @@
         <script src="http://localhost/easy-password/assets/js/cadastro.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/login.js" type="text/javascript"></script>
         <script src="http://localhost/easy-password/assets/js/toastr.min.js"></script>
-
+        <script src="http://localhost/easy-password/assets/js/salvarSenha.js"></script>
+        
+    
+    <?php 
+    if(isset($_SESSION['errorLog'])): ?>
+        <?php 
+        echo $_SESSION['errorLog'];
+        unset($_SESSION['errorLog']);
+         ?>
+        
+    <?php endif; ?>
 
     </body>
 </html>

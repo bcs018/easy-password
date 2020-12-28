@@ -1,3 +1,7 @@
+body {
+    position: relative;
+}
+
 #menu:hover{
     font-size: 18px;
     color: #ffffff;

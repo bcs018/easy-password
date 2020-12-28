@@ -5,7 +5,7 @@ use \core\Model;
 class Cadastro extends Model {
 
     public function verLogin($login){   
-        $sql = "SELECT * FROM usuarios WHERE login = ?";
+        $sql = "SELECT * FROM usuario WHERE login = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $login);
         $sql->execute();
@@ -18,15 +18,15 @@ class Cadastro extends Model {
     }
 
     public function inserir($post){
-        if(!isset($post['nick'])){
-            $post['nick'] = '';
+        if(empty($post['nick'])){
+            $post['nick'] = 'Sem nome';
         }
 
         if($this->verLogin($post['login']) == 1){
             return 1;
         }
 
-        $sql = "INSERT INTO usuarios (nickname, login, senha)
+        $sql = "INSERT INTO usuario (nickname, login, senha)
                 VALUES (?,?,?)";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $post['nick']);
@@ -35,6 +35,22 @@ class Cadastro extends Model {
         $sql->execute();
 
         return 0;
+    }
+
+    public function editNick($nick, $id){
+        $sql = "UPDATE usuario SET nickname = ? WHERE usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $nick);
+        $sql->bindValue(2, $id);
+        $sql->execute();
+    }
+
+    public function editSenha($senha, $id){
+        $sql = "UPDATE usuario SET senha = ? WHERE usuario_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, md5($senha));
+        $sql->bindValue(2, $id);
+        $sql->execute();
     }
 
 }

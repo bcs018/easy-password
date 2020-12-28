@@ -4,7 +4,6 @@ use \core\Model;
 
 class Senha extends Model {
 
-    private $post;
     private $caracteres = [
         [1,2,3,4,5,6,7,8,9,0],
         ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z','ç'],
@@ -12,64 +11,60 @@ class Senha extends Model {
         ['!','@','#','$','%','&','*','/','?','+','-', '<', '>', ]
       ];
 
-    public function __construct($post){
-        $this->post = $post;
-    }
-
-    public function gerarSenha(){
+    public function gerarSenha($post){
         /* Se as opções caracter especiais, letra maiuscula, letra minuscula, e numeros estiver marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){              
-            return $this->calcularSenha($this->post['qtd_carac'], [0,3]);
+        if(isset($post['carac_espec']) && isset($post['letra_mai']) && isset($post['letra_min']) && isset($post['numero'])){              
+            return $this->calcularSenha($post['qtd_carac'], [0,3]);
         }
 
         /* Se as opções letra maiuscula, letra minuscula, e numeros estiver marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['letra_min']) && isset($this->post['numero'])){       
-            return $this->calcularSenha($this->post['qtd_carac'], [0,2]);
+        if(isset($post['letra_mai']) && isset($post['letra_min']) && isset($post['numero'])){       
+            return $this->calcularSenha($post['qtd_carac'], [0,2]);
         }
 
         /* Se as opções especiais, letra maiuscula, e numeros estiver marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['numero'])){       
-            return $this->calcularSenha($this->post['qtd_carac'], [0,2,3], 2);
+        if(isset($post['carac_espec']) && isset($post['letra_mai']) && isset($post['numero'])){       
+            return $this->calcularSenha($post['qtd_carac'], [0,2,3], 2);
         }
 
         /* Se as opções especiais, letra maiuscula, e numeros estiver marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_min']) && isset($this->post['numero'])){       
-            return $this->calcularSenha($this->post['qtd_carac'], [0,1,3], 2);
+        if(isset($post['carac_espec']) && isset($post['letra_min']) && isset($post['numero'])){       
+            return $this->calcularSenha($post['qtd_carac'], [0,1,3], 2);
         }
 
         /* Se as opções letra minuscula e numeros estiver marcadas */
-        if(isset($this->post['letra_min']) && isset($this->post['numero'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [0,1]);  
+        if(isset($post['letra_min']) && isset($post['numero'])){
+            return $this->calcularSenha($post['qtd_carac'], [0,1]);  
         }
 
         /* Se as opções caracter especiais, letra maiuscula, letra minuscula marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai']) && isset($this->post['letra_min'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [1,3]); 
+        if(isset($post['carac_espec']) && isset($post['letra_mai']) && isset($post['letra_min'])){   
+            return $this->calcularSenha($post['qtd_carac'], [1,3]); 
         }
 
         /* Se as opções caracter especiais, letra maiuscula marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_mai'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [2,3]);
+        if(isset($post['carac_espec']) && isset($post['letra_mai'])){   
+            return $this->calcularSenha($post['qtd_carac'], [2,3]);
         }
 
         /* Se as opções caracter especiais, letra minuscula marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['letra_min'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [1,3], 1);
+        if(isset($post['carac_espec']) && isset($post['letra_min'])){   
+            return $this->calcularSenha($post['qtd_carac'], [1,3], 1);
         }
 
         /* Se as opções caracter especiais, numero marcadas */
-        if(isset($this->post['carac_espec']) && isset($this->post['numero'])){   
-            return $this->calcularSenha($this->post['qtd_carac'], [0,3], 1);
+        if(isset($post['carac_espec']) && isset($post['numero'])){   
+            return $this->calcularSenha($post['qtd_carac'], [0,3], 1);
         }
 
         /* Se as opção maiusculo e minusculo estiver marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['letra_min'])){  
-            return $this->calcularSenha($this->post['qtd_carac'], [1,2]);
+        if(isset($post['letra_mai']) && isset($post['letra_min'])){  
+            return $this->calcularSenha($post['qtd_carac'], [1,2]);
          }
 
         /* Se as opção maiusculo e numero estiver marcadas */
-        if(isset($this->post['letra_mai']) && isset($this->post['numero'])){  
-            return $this->calcularSenha($this->post['qtd_carac'], [0,2], 1);
+        if(isset($post['letra_mai']) && isset($post['numero'])){  
+            return $this->calcularSenha($post['qtd_carac'], [0,2], 1);
         }
 
         /**
@@ -77,23 +72,23 @@ class Senha extends Model {
          */
 
         /* Se as opção numeros estiver marcadas */
-        if(isset($this->post['numero'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [0,0]);
+        if(isset($post['numero'])){
+            return $this->calcularSenha($post['qtd_carac'], [0,0]);
         }
 
         /* Se as opção minuscula estiver marcadas */
-        if(isset($this->post['letra_min'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [1,1]);
+        if(isset($post['letra_min'])){
+            return $this->calcularSenha($post['qtd_carac'], [1,1]);
         }
         
         /* Se as opção maiuscula estiver marcadas */
-        if(isset($this->post['letra_mai'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [2,2]);
+        if(isset($post['letra_mai'])){
+            return $this->calcularSenha($post['qtd_carac'], [2,2]);
         }
 
          /* Se as opção especial estiver marcadas */
-         if(isset($this->post['carac_espec'])){
-            return $this->calcularSenha($this->post['qtd_carac'], [3,3]);
+         if(isset($post['carac_espec'])){
+            return $this->calcularSenha($post['qtd_carac'], [3,3]);
          }
     }
 
@@ -137,4 +132,196 @@ class Senha extends Model {
 
         return $senha;
     } 
+
+    public function inserirSen($senhaGravar, $alterou, $categorias){        
+        $sql = "INSERT INTO senha (senha_usu, usuario_id, alterado) 
+                VALUES (?,?,?)";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $senhaGravar);
+        $sql->bindValue(2, $_SESSION['log']['id']);
+        $sql->bindValue(3, $alterou);
+        $sql->execute();
+
+        /* Pega o ultimo id da senha inserida */
+        $sql = "SELECT last_insert_id() as 'ult'";
+        $idSenha = $this->db->query($sql)->fetch();
+
+        if(empty($categorias)){
+            $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                    VALUES (?,?)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, 1);
+            $sql->bindValue(2, $idSenha['ult']);
+            $sql->execute();
+        }else{
+            foreach($categorias as $categoria){
+                $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                        VALUES (?,?)";
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(1, $categoria);
+                $sql->bindValue(2, $idSenha['ult']);
+                $sql->execute();
+            }
+        }
+
+        //Sera exibido uma mensagem na sessão que está destinada a erro de usuario não logado, para não criar outra sessão usei essa mesmo
+        $_SESSION['errorLog'] = '<script> toastr.success("Senha cadastrada com sucesso!"); </script>';
+    }
+
+    public function excluirSen($id=0, $cat=0){
+        //Verificar se a senha pertence ao usuario logado
+        $sql = "SELECT cs.cat_sen_id FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ? AND cs.senha_id = ? AND cs.categoria_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->bindValue(2, $id);
+        $sql->bindValue(3, $cat);
+        $sql->execute();
+
+        if($sql->rowCount() < 1){
+           return true; 
+        }
+        
+        //Verificando se existe a mesma senha para mais de uma categoria
+        $sql = "SELECT cs.cat_sen_id FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ? AND s.senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->bindValue(2, $id);
+        $sql->execute();
+        
+        //Excluir somente o registro da senha e categoria da tabela cat_sen para para desvincular a senha a categoria
+        if($sql->rowCount() > 1){
+            $sql = "DELETE FROM cat_sen WHERE cat_sen_id = (SELECT cs.cat_sen_id FROM senha s
+                                                            JOIN usuario u 
+                                                            ON u.usuario_id = s.usuario_id 
+                                                            JOIN cat_sen cs 
+                                                            ON cs.senha_id = s.senha_id 
+                                                            JOIN categoria c 
+                                                            ON c.categoria_id = cs.categoria_id
+                                                            WHERE u.usuario_id = ? AND s.senha_id = ? AND c.categoria_id = ?)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $_SESSION['log']['id']);
+            $sql->bindValue(2, $id);
+            $sql->bindValue(3, $cat);
+            $sql->execute();
+
+            return false;
+        }else{
+            //Senão deleta a senha e o cat_sen do banco
+            $sql = "DELETE FROM cat_sen WHERE senha_id = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $id);
+            $sql->execute();
+
+            $sql = "DELETE FROM senha WHERE senha_id = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $id);
+            $sql->execute();
+
+            return false;
+        }
+   }
+
+   public function consultarSen($idsen, $idcat){   
+        //Verificar se a senha pertence ao usuario logado
+        $sql = "SELECT cs.cat_sen_id FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ? AND cs.senha_id = ? AND cs.categoria_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->bindValue(2, $idsen);
+        $sql->bindValue(3, $idcat);
+        $sql->execute();
+
+        if($sql->rowCount() == 0){
+            return 1; 
+        }
+
+        $sql = "SELECT s.senha_id, s.senha_usu, c.categoria_id, c.nome_categoria, c.usuario_id FROM senha s 
+                JOIN cat_sen cs
+                ON cs.senha_id = s.senha_id
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE cs.categoria_id = ? AND cs.senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $idcat);
+        $sql->bindValue(2, $idsen);
+        $sql->execute();
+        
+        return $sql->fetch();
+    }   
+    
+    public function editarSen($categorias, $senha, $idsen, $idcat){
+        //Verificar se a senha pertence ao usuario logado
+        $sql = "SELECT cs.cat_sen_id FROM senha s
+                JOIN usuario u 
+                ON u.usuario_id = s.usuario_id 
+                JOIN cat_sen cs 
+                ON cs.senha_id = s.senha_id 
+                JOIN categoria c 
+                ON c.categoria_id = cs.categoria_id
+                WHERE u.usuario_id = ? AND cs.senha_id = ? AND cs.categoria_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $_SESSION['log']['id']);
+        $sql->bindValue(2, $idsen);
+        $sql->bindValue(3, $idcat);
+        $sql->execute();
+
+        if($sql->rowCount() == 0){
+            return 1; 
+        }
+
+        //Alterando a senha
+        $sql = "UPDATE senha SET senha_usu = ?, alterado = ?
+                WHERE senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $senha);
+        $sql->bindValue(2, 1);
+        $sql->bindValue(3, $idsen);
+        $sql->execute();
+
+        //Deletando o registro que vincula a senha com a categoria p/ cadastrar tudo de novo de acordo com o que o usuario selecionou
+        $sql = "DELETE FROM cat_sen WHERE categoria_id = ? AND senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $idcat);
+        $sql->bindValue(2, $idsen);
+        $sql->execute();
+
+        //Inserindo as novas categorias selecionadas pelo usuario
+        if(empty($categorias)){
+            $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                    VALUES (?,?)";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, 1);
+            $sql->bindValue(2, $idsen);
+            $sql->execute();
+        }else{
+            foreach($categorias as $categoria){
+                $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
+                        VALUES (?,?)";
+                $sql = $this->db->prepare($sql);
+                $sql->bindValue(1, $categoria);
+                $sql->bindValue(2, $idsen);
+                $sql->execute();
+            }
+        }
+    }
 }

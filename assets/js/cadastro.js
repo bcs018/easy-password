@@ -21,7 +21,8 @@ $(function(){
             data:{
                 login: $('#login').val(),
                 nick: $('#nick').val(),
-                senha: $('#pass').val()
+                senha: $('#pass').val(),
+                hash: $('#hash').val()
             },
             dataType:'json',
             success:function(json){
@@ -38,6 +39,11 @@ $(function(){
                 }else{
                     $('#login').removeClass('is-invalid');
                     $('#login').addClass('is-valid');
+                }
+
+                if(json.erro == '003'){
+                    toastr.error ('Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!');
+                    return;
                 }
 
                 if(json.success == '100'){

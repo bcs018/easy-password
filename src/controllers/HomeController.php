@@ -3,10 +3,17 @@ namespace src\controllers;
 
 use \core\Controller;
 use \src\models\Senha; 
+use \src\models\Painel; 
 
 class HomeController extends Controller {
 
     public function index() {
+        if(isset($_SESSION['log'])){
+            $painel = new Painel;
+            $this->render('home', ['categorias'=>$painel->listaCate()]);
+            exit;
+        }
+                
         $this->render('home');
     }
 
@@ -23,8 +30,8 @@ class HomeController extends Controller {
             exit;
         }
 
-        $s = new Senha($_POST);
-        $senha = ['senha' => implode('', $s->gerarSenha())];
+        $s = new Senha();
+        $senha = ['senha' => implode('', $s->gerarSenha($_POST))];
 
         echo json_encode($senha);
     }
