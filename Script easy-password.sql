@@ -13,7 +13,7 @@ create table usuario(
     senha varchar(100) not null,
     
     primary key(usuario_id)
-);
+)default char set utf8;
 
 create table senha(
 	senha_id int not null auto_increment,
@@ -23,7 +23,7 @@ create table senha(
     
     primary key(senha_id),
     foreign key(usuario_id) references usuario (usuario_id)
-);
+)default char set utf8;
 
 create table categoria(
 	categoria_id int not null auto_increment,
@@ -32,7 +32,7 @@ create table categoria(
     
     primary key(categoria_id),
     foreign key(usuario_id) references usuario (usuario_id)
-);
+)default char set utf8;
 
 create table cat_sen(
     cat_sen_id int not null auto_increment primary key,
@@ -41,7 +41,7 @@ create table cat_sen(
     
    foreign key(categoria_id) references categoria (categoria_id),
    foreign key(senha_id) references senha (senha_id)
-);
+)default char set utf8;
 
 insert into categoria (nome_categoria)
 values ('Sem categoria');
