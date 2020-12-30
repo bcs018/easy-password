@@ -24,7 +24,7 @@ $(function(){
         }
 
         $.ajax({
-            url:'/easy-password/public/gerar-senha',
+            url:'/home/gerar-senha',
             type:'post',
             data:{
                 qtd_carac: $('#carac').val(),

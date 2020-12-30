@@ -16,7 +16,7 @@ $(function(){
         $('#errSenha').html('');
         
         $.ajax({
-            url:'/easy-password/public/cadastre-se/cadastrar',
+            url:'/home/cadastre-se/cadastrar',
             type:'post',
             data:{
                 login: $('#login').val(),
@@ -68,7 +68,7 @@ $('#login').blur(function(){
     }
 
     $.ajax({
-        url:'/easy-password/public/cadastre-se/valida-login',
+        url:'/home/cadastre-se/valida-login',
         type:'post',
         data:{login: login},
         dataType:'json',

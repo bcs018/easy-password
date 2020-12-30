@@ -10,7 +10,7 @@ $('#form3').on('submit', function(e){
     }
 
     $.ajax({
-        url: '/easy-password/public/logar',
+        url: '/home/logar',
         type: 'post',
         data:{
             login:login,
