@@ -30,7 +30,7 @@ $('#form3').on('submit', function(e){
             }
 
             if(json.success == '100'){
-                window.location.href = '/easy-password/public/painel';
+                window.location.href = 'http://easypassword.ml/home/painel';
                 return;
             }
                 
