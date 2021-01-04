@@ -35,6 +35,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                         <th> Não há senhas a mostrar </th>                
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                       </tr>';
                             else :
                                 foreach ($senhas as $senha) : ?>
