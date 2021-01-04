@@ -12,7 +12,7 @@ $('#fechar').on('click', function(){
 
 function consultarItemSenha(idsen, idcat){
     $.ajax({
-        url: '/easy-password/public/painel/consultar-senha/'+idsen+'/'+idcat,
+        url: '/easy-password/home/painel/consultar-senha/'+idsen+'/'+idcat,
         type: 'POST',
         dataType: 'json',
         success:function(json){

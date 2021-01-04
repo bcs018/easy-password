@@ -10,7 +10,7 @@ $('#form3').on('submit', function(e){
     }
 
     $.ajax({
-        url: '/easy-password/public/logar',
+        url: '/easy-password/home/logar',
         type: 'post',
         data:{
             login:login,
@@ -30,7 +30,7 @@ $('#form3').on('submit', function(e){
             }
 
             if(json.success == '100'){
-                window.location.href = '/easy-password/public/painel';
+                window.location.href = '/easy-password/home/painel';
                 return;
             }
                 

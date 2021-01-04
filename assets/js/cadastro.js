@@ -16,7 +16,7 @@ $(function(){
         $('#errSenha').html('');
         
         $.ajax({
-            url:'/easy-password/public/cadastre-se/cadastrar',
+            url:'/easy-password/home/cadastre-se/cadastrar',
             type:'post',
             data:{
                 login: $('#login').val(),
@@ -47,7 +47,7 @@ $(function(){
                 }
 
                 if(json.success == '100'){
-                    $('#errSenha').html('<div class="alert alert-success" role="alert">Cadastro efetuado com sucesso! <a href="/easy-password/public/login"><b>Faça Login</b></a></div>');
+                    $('#errSenha').html('<div class="alert alert-success" role="alert">Cadastro efetuado com sucesso! <a href="/easy-password/home/login"><b>Faça Login</b></a></div>');
                     $('#form2 input').val(""); //coloca todos valores de todos inputs do form como vazio
                     $('#form2 input[type = submit]').val("Cadastrar"); //recoloca o texto no botão
                     $('#form2 input').removeClass('is-valid');
@@ -68,7 +68,7 @@ $('#login').blur(function(){
     }
 
     $.ajax({
-        url:'/easy-password/public/cadastre-se/valida-login',
+        url:'/easy-password/home/cadastre-se/valida-login',
         type:'post',
         data:{login: login},
         dataType:'json',

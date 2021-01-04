@@ -1,3 +1,3 @@
 <?php 
 
-header("Location: /easy-password/public");
+header("Location: /easy-password/home");
