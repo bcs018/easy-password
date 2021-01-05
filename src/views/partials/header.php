@@ -3,6 +3,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta property="og:url" content="https://www.easypassword.ml">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="easy password - Gerador de senhas" >
+        <meta property="og:description" content="Gere e guarde suas senhas de forma prática e rápida">
+        <meta property="og:image" content="https://www.easypassword.ml/assets/img/meta.jpg"> <!--1200x630 max 5mb-->
         <link rel="stylesheet" href="<?php echo BASE_ASS; ?>/assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="<?php echo BASE_ASS; ?>/assets/css/layout.css">
         <link rel="shortcut icon" href="<?php echo BASE_ASS; ?>/assets/img/icon.ico" >

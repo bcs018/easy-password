@@ -4,7 +4,7 @@
     <section>
         <article>
             <div class="container-sm margin_conteudo">
-                <h2>Gere suas senhas de maneira fácil e pratica</h2>
+                <h2>Gere e salve suas senhas de maneira fácil e pratica</h2>
                 <br><br>
                 <div class="field">
                     <strong> <label>

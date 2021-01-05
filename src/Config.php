@@ -6,8 +6,8 @@ if(Environment::ENVIRONMENT == 'local'){
     define('BASE_URI', 'http://localhost/easy-password/home');
     define('BASE_ASS', 'http://localhost/easy-password');
 }else{
-    define('BASE_URI', 'http://easypassword.ml');
-    define('BASE_ASS', 'http://easypassword.ml');
+    define('BASE_URI', 'https://easypassword.ml');
+    define('BASE_ASS', 'https://easypassword.ml');
 }
 
 class Config {
