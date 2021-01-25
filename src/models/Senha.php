@@ -289,6 +289,14 @@ class Senha extends Model {
             return 1; 
         }
 
+        /**
+         * Ao fazer um update esta editando varias senhas daquele usuario
+         * pois só existe uma senha na tabela de senhas
+         * 
+         * Solução: fazer um novo insert da senha editada, excluir o registro dela da cat_sen e inserir
+         * novamente na cat_sen a nova senha
+         */
+
         //Alterando a senha
         $sql = "UPDATE senha SET senha_usu = ?, alterado = ?
                 WHERE senha_id = ?";
