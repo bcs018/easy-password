@@ -298,13 +298,26 @@ class Senha extends Model {
          */
 
         //Alterando a senha
-        $sql = "UPDATE senha SET senha_usu = ?, alterado = ?
+        /*$sql = "UPDATE senha SET senha_usu = ?, alterado = ?
                 WHERE senha_id = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $senha);
         $sql->bindValue(2, 1);
         $sql->bindValue(3, $idsen);
+        $sql->execute();*/
+
+        //Fazendo um novo insert pois se a senha 
+        $sql = "INSERT INTO senha (senha_usu, usuario_id, alterado) 
+                VALUES (?,?,?)";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $senha);
+        $sql->bindValue(2, $_SESSION['log']['id']);
+        $sql->bindValue(3, 1);
         $sql->execute();
+
+        /* Pega o ultimo id da senha inserida */
+        $sql = "SELECT last_insert_id() as 'ult'";
+        $idSenhaNova = $this->db->query($sql)->fetch();
 
         //Deletando o registro que vincula a senha com a categoria p/ cadastrar tudo de novo de acordo com o que o usuario selecionou
         $sql = "DELETE FROM cat_sen WHERE categoria_id = ? AND senha_id = ?";
@@ -319,7 +332,7 @@ class Senha extends Model {
                     VALUES (?,?)";
             $sql = $this->db->prepare($sql);
             $sql->bindValue(1, 1);
-            $sql->bindValue(2, $idsen);
+            $sql->bindValue(2, $idSenhaNova);
             $sql->execute();
         }else{
             foreach($categorias as $categoria){
@@ -327,7 +340,7 @@ class Senha extends Model {
                         VALUES (?,?)";
                 $sql = $this->db->prepare($sql);
                 $sql->bindValue(1, $categoria);
-                $sql->bindValue(2, $idsen);
+                $sql->bindValue(2, $idSenhaNova);
                 $sql->execute();
             }
         }
