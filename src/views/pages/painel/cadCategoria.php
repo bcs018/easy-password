@@ -16,8 +16,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
         <div class="row mt">
             <div class="col-lg-12">
                 <div class="form-panel">
-                    <h2 class="mb"><i class="fa fa-angle-right"></i> Cadastro de categorias &nbsp
-                        <i id="button" aria-describedby="tooltip" class="fa fa-info-circle" aria-hidden="true"></i>
+                    <h2 class="mb"><i class="fa fa-angle-right"></i> Cadastro de categorias &nbsp                       
                         <div id="tooltip" role="tooltip">
                             Ao cadastrar uma categoria, você pode vincular suas senhas a essa categoria <br>
                             EX: Senha XXX da categoria Facebook <br><br>

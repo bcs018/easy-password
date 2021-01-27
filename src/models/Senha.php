@@ -270,6 +270,8 @@ class Senha extends Model {
     }   
     
     public function editarSen($categorias, $senha, $idsen, $idcat){
+        $idsenNov['ult'] = $idsen;
+        
         //Verificar se a senha pertence ao usuario logado
         $sql = "SELECT cs.cat_sen_id FROM senha s
                 JOIN usuario u 
@@ -289,30 +291,11 @@ class Senha extends Model {
             return 1; 
         }
 
-        //Deletando o registro que vincula a senha com a categoria p/ cadastrar tudo de novo de acordo com o que o usuario selecionou
-        $sql = "DELETE FROM cat_sen WHERE categoria_id = ? AND senha_id = ?";
-        $sql = $this->db->prepare($sql);
-        $sql->bindValue(1, $idcat);
-        $sql->bindValue(2, $idsen);
-        $sql->execute();
-
-        /**
-         * Ao fazer um update esta editando varias senhas daquele usuario
-         * pois só existe uma senha na tabela de senhas compartilhada para varias categorias
-         * então quando o usuario alterava uma senha que era a mesma de outra categoria
-         * alterava as duas, pois as categorias possuiam o mesmo id de senha
-         * 
-         * Solução: fazer um novo insert da senha editada, excluir o registro dela da cat_sen e inserir
-         * novamente na cat_sen a nova senha
-         */
-
         // Verificando se existe uma senha vinculada a mais de uma categoria
         $sql = "SELECT * FROM cat_sen WHERE senha_id = ?";
         $sql = $this->db->prepare($sql);
         $sql->bindValue(1, $idsen);
         $sql->execute();
-
-        print_r($sql->rowCount());exit;
 
         // Se existir somente uma senha para uma categoria, faz o update
         if($sql->rowCount() == 1){
@@ -324,7 +307,7 @@ class Senha extends Model {
             $sql->bindValue(3, $idsen);
             $sql->execute();
         }else{
-            //Fazendo um novo insert pois a mesma senha existe para mais de uma categoria
+            //Fazendo um novo insert pois a mesma senha existe para mais de uma categoria e se fazer update nela sera feito para todas categorias
             $sql = "INSERT INTO senha (senha_usu, usuario_id, alterado) 
                     VALUES (?,?,?)";
             $sql = $this->db->prepare($sql);
@@ -335,26 +318,23 @@ class Senha extends Model {
 
             /* Pega o ultimo id da senha inserida */
             $sql = "SELECT last_insert_id() as 'ult'";
-            $idsen = $this->db->query($sql)->fetch();
+            $idsenNov = $this->db->query($sql)->fetch();
         }
 
-        //Inserindo as novas categorias selecionadas pelo usuario
-        if(empty($categorias)){
+        //Deletando o registro que vincula a senha com a categoria p/ cadastrar tudo de novo de acordo com o que o usuario selecionou
+        $sql = "DELETE FROM cat_sen WHERE categoria_id = ? AND senha_id = ?";
+        $sql = $this->db->prepare($sql);
+        $sql->bindValue(1, $idcat);
+        $sql->bindValue(2, $idsen);
+        $sql->execute();
+
+        foreach($categorias as $categoria){
             $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
                     VALUES (?,?)";
             $sql = $this->db->prepare($sql);
-            $sql->bindValue(1, 1);
-            $sql->bindValue(2, $idsen);
+            $sql->bindValue(1, $categoria);
+            $sql->bindValue(2, $idsenNov['ult']);
             $sql->execute();
-        }else{
-            foreach($categorias as $categoria){
-                $sql = "INSERT INTO cat_sen (categoria_id, senha_id)
-                        VALUES (?,?)";
-                $sql = $this->db->prepare($sql);
-                $sql->bindValue(1, $categoria);
-                $sql->bindValue(2, $idsen);
-                $sql->execute();
-            }
         }
     }
 }

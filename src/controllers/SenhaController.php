@@ -76,6 +76,7 @@ class SenhaController extends Controller {
         }
 
         $senha = htmlspecialchars(addslashes($_POST['senhaN']));
+        if(empty($_POST['categoria'])){ $_POST['categoria'] = [1];}
         $categorias = $_POST['categoria'];
         $idSenha = htmlspecialchars(addslashes($_POST['senid']));
         $idCat = htmlspecialchars(addslashes($_POST['catid']));
