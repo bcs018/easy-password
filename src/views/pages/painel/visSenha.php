@@ -50,7 +50,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                             endif; ?>
                                         </th>
                                         <th scope="row"> 
-                                            <a href="<?php echo BASE_URI; ?>/painel/excluir-senha/<?php echo $senha['senha_id']; ?>/<?php echo $senha['categoria_id']; ?>">Excluir</a>
+                                            <a href="<?php echo BASE_URI. '/painel/excluir-senha/'. $senha['senha_id']. '/'. $senha['categoria_id']; ?>">Excluir</a>
                                             &nbsp; | &nbsp;
                                             <a data-toggle="modal" data-target="#a" href="" onclick="consultarItemSenha(<?php echo $senha['senha_id'] . ',' . $senha['categoria_id']; ?>)">Editar</a>
                                         </th>

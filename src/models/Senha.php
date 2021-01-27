@@ -187,7 +187,7 @@ class Senha extends Model {
         if($sql->rowCount() < 1){
            return true; 
         }
-        
+
         //Verificando se existe a mesma senha para mais de uma categoria
         $sql = "SELECT cs.cat_sen_id FROM senha s
                 JOIN usuario u 
@@ -204,18 +204,33 @@ class Senha extends Model {
         
         //Excluir somente o registro da senha e categoria da tabela cat_sen para para desvincular a senha a categoria
         if($sql->rowCount() > 1){
-            $sql = "DELETE FROM cat_sen WHERE cat_sen_id = (SELECT cs.cat_sen_id FROM senha s
+            //Feito esse select antes, pois estava dando erro http 500, provavelmente de sobrecarga de serviço no servidor a rodar esse select junto com o delete
+            $sql = "SELECT cs.cat_sen_id FROM senha s
+                    JOIN usuario u 
+                    ON u.usuario_id = s.usuario_id 
+                    JOIN cat_sen cs 
+                    ON cs.senha_id = s.senha_id 
+                    JOIN categoria c 
+                    ON c.categoria_id = cs.categoria_id
+                    WHERE u.usuario_id = ? AND s.senha_id = ? AND c.categoria_id = ?";
+            $sql = $this->db->prepare($sql);
+            $sql->bindValue(1, $_SESSION['log']['id']);
+            $sql->bindValue(2, $id);
+            $sql->bindValue(3, $cat);
+            $sql->execute();
+
+            $cat_sen_id = $sql->fetch();
+
+            $sql = "DELETE FROM cat_sen WHERE cat_sen_id = ?";/*(SELECT cs.cat_sen_id FROM senha s
                                                             JOIN usuario u 
                                                             ON u.usuario_id = s.usuario_id 
                                                             JOIN cat_sen cs 
                                                             ON cs.senha_id = s.senha_id 
                                                             JOIN categoria c 
                                                             ON c.categoria_id = cs.categoria_id
-                                                            WHERE u.usuario_id = ? AND s.senha_id = ? AND c.categoria_id = ?)";
+                                                            WHERE u.usuario_id = ? AND s.senha_id = ? AND c.categoria_id = ?)";*/
             $sql = $this->db->prepare($sql);
-            $sql->bindValue(1, $_SESSION['log']['id']);
-            $sql->bindValue(2, $id);
-            $sql->bindValue(3, $cat);
+            $sql->bindValue(1, $cat_sen_id['cat_sen_id']);
             $sql->execute();
 
             return false;
@@ -230,7 +245,7 @@ class Senha extends Model {
             $sql = $this->db->prepare($sql);
             $sql->bindValue(1, $id);
             $sql->execute();
-
+            echo "Esta aqui ELSE";exit;
             return false;
         }
    }
