@@ -245,7 +245,7 @@ class Senha extends Model {
             $sql = $this->db->prepare($sql);
             $sql->bindValue(1, $id);
             $sql->execute();
-            echo "Esta aqui ELSE";exit;
+
             return false;
         }
    }
