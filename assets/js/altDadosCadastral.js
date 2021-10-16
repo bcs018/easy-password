@@ -1,6 +1,6 @@
 $('#altNick').on('click', function(){
     $.ajax({
-        url: '/home/painel/alterar-nick',
+        url: '/painel/alterar-nick',
         type: 'POST',
         data: { 
             nick: $('#nickCad').val(),
@@ -22,7 +22,7 @@ $('#altNick').on('click', function(){
 
 $('#altSen').on('click', function(){
     $.ajax({
-        url: '/home/painel/alterar-senha',
+        url: '/painel/alterar-senha',
         type: 'POST',
         data: { 
             senha: $('#senhaCad').val(),

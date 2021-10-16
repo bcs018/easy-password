@@ -40,6 +40,6 @@ class LoginController extends Controller {
 
     public function sair(){
         unset($_SESSION['log']);
-        header("Location: ".BASE_URI.'/login');
+        header("Location: /login");
     }
 } 

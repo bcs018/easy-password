@@ -2,7 +2,7 @@
 
 <div style="text-align: center; margin: 7%;">
     <h2>Página não encontrada!</h2><br>
-    <img style="width: 100%;" src="<?php echo BASE_ASS; ?>/assets/img/erro-404.png" alt="Página não encontrada!">
+    <img style="width: 100%;" src="/assets/img/erro-404.png" alt="Página não encontrada!">
 </div>
 
 <?php $render('footer'); ?>

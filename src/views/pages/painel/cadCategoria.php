@@ -1,7 +1,7 @@
 <?php 
 if(!isset($_SESSION['log'])){
     $_SESSION['errorLog'] = '<script> toastr.error("Usuário não logado!"); </script>'; 
-    header('Location: '.BASE_URI);
+    header('Location: /');
 }
 
 if(!isset($_SESSION['hash'])){
@@ -27,7 +27,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                         </div>
                     </h2>
                     <form class="form-horizontal style-form" method="post"
-                        action="<?php echo BASE_URI; ?>/painel/inserir-categoria">
+                        action="/painel/inserir-categoria">
                         <div class="form-group">
                             <label class="form-label">Nome da categoria</label>
                             <div class="col-sm-10">
@@ -64,7 +64,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                     <th></th>
                                 <?php else: ?>
                                     <th scope="row">
-                                        <a href="<?php echo BASE_URI . '/painel/excluir-categoria/' . $categoria['categoria_id']; ?>">Excluir</a>
+                                        <a href="/painel/excluir-categoria/<?php echo $categoria['categoria_id']; ?>">Excluir</a>
                                         &nbsp | &nbsp
                                         <a data-toggle="modal" data-target="#exampleModal" href="" onclick="consultarItem(<?php echo $categoria['categoria_id']; ?>)">Editar</a>
                                         <input type="hidden" value="<?php echo $categoria['categoria_id']; ?>">

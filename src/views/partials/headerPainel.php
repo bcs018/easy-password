@@ -9,15 +9,15 @@
 
 	<title><?php echo $title; ?></title>
 
-	<link href="<?php echo BASE_ASS; ?>/assets/pnl/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/assets/pnl/css/bootstrap.min.css" rel="stylesheet">
 
-	<link href="<?php echo BASE_ASS; ?>/assets/pnl/font-awesome/css/font-awesome.css" rel="stylesheet" />
-	<link rel="shortcut icon" href="<?php echo BASE_ASS; ?>/assets/img/icon.ico">
-	<link href="<?php echo BASE_ASS; ?>/assets/css/toastr.min.css" rel="stylesheet" />
+	<link href="/assets/pnl/font-awesome/css/font-awesome.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="/assets/img/icon.ico">
+	<link href="/assets/css/toastr.min.css" rel="stylesheet" />
 
 	<!-- Custom styles for this template -->
-	<link href="<?php echo BASE_ASS; ?>/assets/pnl/css/style.css" rel="stylesheet">
-	<link href="<?php echo BASE_ASS; ?>/assets/pnl/css/style-responsive.css" rel="stylesheet">
+	<link href="/assets/pnl/css/style.css" rel="stylesheet">
+	<link href="/assets/pnl/css/style-responsive.css" rel="stylesheet">
 </head>
 
 <body>
@@ -27,7 +27,7 @@
 				<div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
 			</div>
 
-			<a href="" class="logo"><b>easy password</b></a> <a class="logo homeP" href="<?php echo BASE_URI; ?>">Home</a>
+			<a href="" class="logo"><b>easy password</b></a> <a class="logo homeP" href="/">Home</a>
 		</header>
 
 		<aside>
@@ -35,27 +35,27 @@
 				<ul class="sidebar-menu" id="nav-accordion">
 
 					<h5 class="centered"><?php echo htmlspecialchars($_SESSION['log']['nick']); ?> &nbsp <i id="button" aria-describedby="tooltip" class="fa fa-info-circle" aria-hidden="true"></i></h5>
-					<p class="centered"><a id="color_a" href="<?php echo BASE_URI;?>/sair">Sair</a></p>
+					<p class="centered"><a id="color_a" href="/sair">Sair</a></p>
 					<div id="tooltip" role="tooltip">
 						Você pode mudar seu nome clicando no menu "Dados cadastrais"!	
 						<div id="arrow" data-popper-arrow></div>
                     </div>
 					<li class="mt">
-						<a class="" href="<?php echo BASE_URI; ?>/painel">
+						<a class="" href="/painel">
 							<i class="fa fa-plus"></i>
 							<span>Cadastrar categoria</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="<?php echo BASE_URI; ?>/painel/visualizar-senha">
+						<a href="/painel/visualizar-senha">
 							<i class="fa fa-eye"></i>
 							<span>Visualizar senhas</span>
 						</a>
 					</li>
 
 					<li class="sub-menu">
-						<a href="<?php echo BASE_URI; ?>/painel/dados-cadastrais">
+						<a href="/painel/dados-cadastrais">
 							<i class="fa fa-user"></i>
 							<span>Dados cadastrais</span>
 						</a>

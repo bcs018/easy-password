@@ -10,7 +10,7 @@ $('#form3').on('submit', function(e){
     }
 
     $.ajax({
-        url: '/home/logar',
+        url: '/logar',
         type: 'post',
         data:{
             login:login,
