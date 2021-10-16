@@ -46,17 +46,17 @@
 </script>
 
 <!-- js placed at the end of the document so the pages load faster -->
-<script src="<?php echo BASE_ASS; ?>/assets/js/jquery.min.js"></script>
-<script src="<?php echo BASE_ASS; ?>/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
 <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.js"></script>
-<script src="<?php echo BASE_ASS; ?>/assets/js/toastr.min.js"></script>
-<script src="<?php echo BASE_ASS; ?>/assets/pnl/js/main.js"></script>
-<script src="<?php echo BASE_ASS; ?>/assets/js/editarCate.js"></script>
-<script src="<?php echo BASE_ASS; ?>/assets/js/editarSen.js"></script>
-<script src="<?php echo BASE_ASS; ?>/assets/js/altDadosCadastral.js"></script>
+<script src="/assets/js/toastr.min.js"></script>
+<script src="/assets/pnl/js/main.js"></script>
+<script src="/assets/js/editarCate.js"></script>
+<script src="/assets/js/editarSen.js"></script>
+<script src="/assets/js/altDadosCadastral.js"></script>
 
 <!--common script for all pages-->
-<script src="<?php echo BASE_ASS; ?>/assets/pnl/js/common-scripts.js"></script>
+<script src="/assets/pnl/js/common-scripts.js"></script>
 
 <?php
 if (isset($_SESSION['message'])) {

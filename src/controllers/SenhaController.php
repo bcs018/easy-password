@@ -21,7 +21,7 @@ class SenhaController extends Controller {
 
         $s->inserirSen($senhaGravar, $alterado, $categorias);
         
-        header("Location: ". BASE_URI);
+        header("Location: /");
     }
 
     public function excluir($id){
@@ -31,14 +31,14 @@ class SenhaController extends Controller {
             $_SESSION['message'] = "<script> 
                                         toastr.error('Está senha não pertence a esse usuário!');
                                     </script>";          
-            header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+            header("Location: /painel/visualizar-senha"); 
             exit;                       
         }
 
         $_SESSION['message'] = "<script> 
                                     toastr.success('Senha excluido com sucesso!');
                                 </script>";          
-        header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+        header("Location: /painel/visualizar-senha"); 
         exit;
     }
 
@@ -53,7 +53,7 @@ class SenhaController extends Controller {
             $_SESSION['message'] = "<script> 
                                         toastr.error('Está senha não pertence a esse usuário!');
                                     </script>";
-            header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+            header("Location: /painel/visualizar-senha"); 
             exit;
         }
 
@@ -63,7 +63,7 @@ class SenhaController extends Controller {
 
     public function editar(){
         if($this->verHash($_POST['hash3'])){
-            header("Location: ".BASE_URI.'/painel/visualizar-senha');
+            header("Location: /painel/visualizar-senha");
             exit;
         } 
 
@@ -71,7 +71,7 @@ class SenhaController extends Controller {
             $_SESSION['message'] = "<script> 
                                         toastr.error('Senha em branco, altere novamente!');
                                     </script>";
-            header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+            header("Location: /painel/visualizar-senha"); 
             exit;
         }
 
@@ -89,12 +89,12 @@ class SenhaController extends Controller {
             $_SESSION['message'] = "<script> 
                                         toastr.error('Está senha não pertence a esse usuário!');
                                     </script>";
-            header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+            header("Location: /painel/visualizar-senha"); 
             exit;
         }
 
         $_SESSION['message'] = '<script> toastr.success("Senha alterada com sucesso!"); </script>';
-        header("Location: ".BASE_URI."/painel/visualizar-senha"); 
+        header("Location: /painel/visualizar-senha"); 
         exit;
     }
 

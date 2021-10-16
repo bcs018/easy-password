@@ -13,15 +13,15 @@
         </div>
     </footer>
 
-        <script src="<?php echo BASE_ASS; ?>/assets/js/jquery.min.js"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/popper.min.js" type="text/javascript"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/bootstrap.min.js"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/geraSenha.js" type="text/javascript"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/buttonCopy.js" type="text/javascript"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/cadastro.js" type="text/javascript"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/login.js" type="text/javascript"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/toastr.min.js"></script>
-        <script src="<?php echo BASE_ASS; ?>/assets/js/salvarSenha.js"></script>
+        <script src="/assets/js/jquery.min.js"></script>
+        <script src="/assets/js/popper.min.js" type="text/javascript"></script>
+        <script src="/assets/js/bootstrap.min.js"></script>
+        <script src="/assets/js/geraSenha.js" type="text/javascript"></script>
+        <script src="/assets/js/buttonCopy.js" type="text/javascript"></script>
+        <script src="/assets/js/cadastro.js" type="text/javascript"></script>
+        <script src="/assets/js/login.js" type="text/javascript"></script>
+        <script src="/assets/js/toastr.min.js"></script>
+        <script src="/assets/js/salvarSenha.js"></script>
         
     
     <?php 

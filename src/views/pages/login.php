@@ -39,7 +39,7 @@
 							Não tem uma conta?
 						</span>
 
-						<a href="<?php echo BASE_URI; ?>/cadastre-se" class="txt2 hov1">
+						<a href="/cadastre-se" class="txt2 hov1">
 							Cadastre-se
 						</a>
 					</div>

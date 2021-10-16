@@ -12,12 +12,12 @@ class CategoriaController extends Controller {
                                         toastr.error('Nome da categoria em branco!');
                                     </script>";
 
-            header("Location: ". BASE_URI."/painel");
+            header("Location: /painel");
             exit;
         }
 
         if($this->verHash($_POST['hash'])){
-            header("Location: ". BASE_URI."/painel");
+            header("Location: /painel");
             exit;
         }
 
@@ -30,7 +30,7 @@ class CategoriaController extends Controller {
                                     toastr.success('Cadastro feito com sucesso!');
                                 </script>";
 
-        header("Location: ". BASE_URI."/painel");
+        header("Location: /painel");
         exit;   
     }
 
@@ -39,7 +39,7 @@ class CategoriaController extends Controller {
             $_SESSION['message'] = '<script> 
                                         toastr.error("Não pode excluir essa categoria!"); 
                                     </script>';
-            header("Location: ". BASE_URI."/painel");
+            header("Location: /painel");
             exit;
         }
 
@@ -51,13 +51,13 @@ class CategoriaController extends Controller {
             $_SESSION['message'] = '<script> 
                                         toastr.error("Não pode excluir a categoria pois tem uma senha vinculada a ela!"); 
                                     </script>';
-            header("Location: ". BASE_URI."/painel");
+            header("Location: /painel");
             exit;
         }elseif($dados == 2){
             $_SESSION['message'] = '<script> 
                                         toastr.error("Houve um erro no envio, informe o erro 002 para o admin do sistema ou tente novamente recarregando a pagina!"); 
                                     </script>';
-            header("Location: ". BASE_URI."/painel");
+            header("Location: /painel");
             exit;
         }
 
@@ -65,7 +65,7 @@ class CategoriaController extends Controller {
                                     toastr.success('Excluido com sucesso!');
                                 </script>";
 
-        header("Location: ". BASE_URI."/painel");
+        header("Location: /painel");
         exit;
     }
     

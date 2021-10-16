@@ -5,7 +5,7 @@ $('#enviar').on('click', function(){
     }
 
     $.ajax({
-        url: '/easy-password/home/painel/editar-categoria/'+$('#catid').val(),
+        url: '/painel/editar-categoria/'+$('#catid').val(),
         type: 'POST',
         data: {
             nome: $('#nomeCate').val(),
@@ -35,7 +35,7 @@ $('#fechar').on('click', function(){
 
 function consultarItem(id){
     $.ajax({
-        url: '/easy-password/home/painel/consultar-categoria/'+id,
+        url: '/painel/consultar-categoria/'+id,
         type: 'POST',
         dataType: 'json',
         success:function(json){

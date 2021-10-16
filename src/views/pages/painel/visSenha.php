@@ -1,7 +1,7 @@
 <?php
 if (!isset($_SESSION['log'])) {
     $_SESSION['errorLog'] = '<script> toastr.error("Usuário não logado!"); </script>';
-    header('Location: ' . BASE_URI);
+    header('Location: /');
 }
 
 if(!isset($_SESSION['hash'])){
@@ -35,7 +35,6 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                         <th> Não há senhas a mostrar </th>                
                                         <th></th>
                                         <th></th>
-                                        <th></th>
                                       </tr>';
                             else :
                                 foreach ($senhas as $senha) : ?>
@@ -50,7 +49,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                             endif; ?>
                                         </th>
                                         <th scope="row"> 
-                                            <a href="<?php echo BASE_URI. '/painel/excluir-senha/'. $senha['senha_id']. '/'. $senha['categoria_id']; ?>">Excluir</a>
+                                            <a href="/painel/excluir-senha/<?php echo $senha['senha_id']; ?>/<?php echo $senha['categoria_id']; ?>">Excluir</a>
                                             &nbsp; | &nbsp;
                                             <a data-toggle="modal" data-target="#a" href="" onclick="consultarItemSenha(<?php echo $senha['senha_id'] . ',' . $senha['categoria_id']; ?>)">Editar</a>
                                         </th>
@@ -67,7 +66,7 @@ $render('headerPainel', ['title' => 'easy password - Painel de controle']); ?>
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">Editar senha e categoria</h5>
                                 </div>
-                                <form action="<?php echo BASE_URI; ?>/painel/editar-senha" method="POST">
+                                <form action="/painel/editar-senha" method="POST">
                                     <div class="modal-body">
                                         <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Nova senha</label>
