@@ -7,7 +7,7 @@
                 </div>
                
                 <div class="col-auto mr-auto">
-                    Desenvolvido por:<a href="http://bcsdev.ga" id="bcs" target="blank"> <strong>BCS Dev</strong></a>
+                    Desenvolvido por:<a target="_blank" href="https://bcsdev.ga" id="bcs" target="blank"> <strong>BCS Dev</strong></a>
                 </div>
             </div>
         </div>
