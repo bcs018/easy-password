@@ -3,7 +3,7 @@
             <hr><br>
             <div class="row">
                 <div class="col-sm">
-                    © 2021 easy password · Todos os direitos reservados.
+                    © <?php echo date('Y'); ?> easy password · Todos os direitos reservados.
                 </div>
                
                 <div class="col-auto mr-auto">
